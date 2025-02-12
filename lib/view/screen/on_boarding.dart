@@ -1,7 +1,7 @@
 import 'package:ecommerceapp/controller/on_boarding_controller.dart';
-import 'package:ecommerceapp/view/widget/on_boarding.dart/custom_button.dart';
-import 'package:ecommerceapp/view/widget/on_boarding.dart/custom_slider.dart';
-import 'package:ecommerceapp/view/widget/on_boarding.dart/dot_controller.dart';
+import 'package:ecommerceapp/view/widget/on_boarding/custom_button.dart';
+import 'package:ecommerceapp/view/widget/on_boarding/dots.dart';
+import 'package:ecommerceapp/view/widget/on_boarding/slide.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,17 +13,18 @@ class OnBoarding extends StatelessWidget {
     Get.put(OnBoardingControllerImpl());
     return Scaffold(
       body: Column(
-        children: <Widget>[
-          Expanded(flex: 3, child: CustomSliderOnboarding()),
+        children: [
+          Expanded(flex: 4, child: SlideOnBoarding()),
           Expanded(
               child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              DotControllerOnBoarding(),
-              Spacer(flex: 2),
+              DotsOnBoarding(),
+              Spacer(),
               CustomButtonOnBoarding(),
-              Spacer()
+              Spacer(),
             ],
-          )),
+          ))
         ],
       ),
     );

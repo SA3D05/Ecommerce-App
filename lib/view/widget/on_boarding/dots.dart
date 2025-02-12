@@ -1,0 +1,36 @@
+import 'package:ecommerceapp/controller/on_boarding_controller.dart';
+import 'package:ecommerceapp/core/constant/color.dart';
+import 'package:ecommerceapp/data/data_source/static/static.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+class DotsOnBoarding extends StatelessWidget {
+  const DotsOnBoarding({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GetBuilder<OnBoardingControllerImpl>(
+        builder: (controller) => Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ...List.generate(
+                  onBoardingList.length,
+                  (index) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 2),
+                    child: AnimatedContainer(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeInOut,
+                      height: 10,
+                      width: index == controller.currentIndex ? 20 : 10,
+                      decoration: BoxDecoration(
+                          color: index == controller.currentIndex
+                              ? AppColor.primary
+                              : AppColor.light,
+                          borderRadius: BorderRadius.circular(5)),
+                    ),
+                  ),
+                )
+              ],
+            ));
+  }
+}
