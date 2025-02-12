@@ -1,5 +1,4 @@
 import 'package:ecommerceapp/controller/on_boarding_controller.dart';
-import 'package:ecommerceapp/core/constant/font.dart';
 import 'package:ecommerceapp/data/data_source/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -22,22 +21,13 @@ class SlideOnBoarding extends GetView<OnBoardingControllerImpl> {
               Text(
                 onBoardingList[index].title,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontFamily: 'ElMessiri',
-                  fontWeight:
-                      AppFont.bold, // يمكنك تجربة FontWeight.w400 أو w700 وهكذا
-                  fontSize: 32,
-                ),
+                style: Theme.of(context).textTheme.bodyLarge,
               ),
-              Text(onBoardingList[index].description,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    height: 1.2,
-                    fontFamily: 'ElMessiri',
-                    fontWeight: AppFont
-                        .medium, // يمكنك تجربة FontWeight.w400 أو w700 وهكذا
-                    fontSize: 16,
-                  )),
+              Text(
+                onBoardingList[index].description,
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.bodySmall,
+              ),
             ],
           ),
         );
