@@ -9,6 +9,7 @@ abstract class OnBoardingController extends GetxController {
 }
 
 class OnBoardingControllerImpl extends OnBoardingController {
+  int currentIndex = 0;
   late PageController pageController;
 
   bool get isLastPage => currentIndex == onBoardingList.length - 1;
@@ -16,14 +17,13 @@ class OnBoardingControllerImpl extends OnBoardingController {
   @override
   onPageChanged(int index) {
     currentIndex = index;
-
     update();
   }
 
-  int currentIndex = 0;
   @override
   void onInit() {
     pageController = PageController();
+
     super.onInit();
   }
 

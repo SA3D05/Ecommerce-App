@@ -1,7 +1,10 @@
 import 'package:ecommerceapp/core/constant/font.dart';
+import 'package:ecommerceapp/core/localization/change_local.dart';
+import 'package:ecommerceapp/core/localization/translation.dart';
 import 'package:ecommerceapp/core/services/services.dart';
 import 'package:ecommerceapp/routes.dart';
-import 'package:ecommerceapp/view/screen/on_boarding.dart';
+import 'package:ecommerceapp/view/screen/change_language.dart';
+// import 'package:ecommerceapp/view/screen/on_boarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -19,27 +22,32 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
+      locale: controller.language,
+      translations: AppTranslation(),
       routes: routes,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-          fontFamily: "ElMessiri",
-          textTheme: TextTheme(
-              bodyLarge: TextStyle(
-                fontFamily: 'ElMessiri',
-                fontWeight:
-                    AppFont.bold, // يمكنك تجربة FontWeight.w400 أو w700 وهكذا
-                fontSize: 32,
-              ),
-              bodySmall: TextStyle(
-                height: 1.2,
-                fontFamily: 'ElMessiri',
-                fontWeight:
-                    AppFont.medium, // يمكنك تجربة FontWeight.w400 أو w700 وهكذا
-                fontSize: 16,
-              ))),
-      home: OnBoarding(),
+        fontFamily: "ElMessiri",
+        textTheme: TextTheme(
+          bodyLarge: TextStyle(
+            fontFamily: 'ElMessiri',
+            fontWeight:
+                AppFont.bold, // يمكنك تجربة FontWeight.w400 أو w700 وهكذا
+            fontSize: 32,
+          ),
+          bodySmall: TextStyle(
+              height: 1.2,
+              fontFamily: 'ElMessiri',
+              fontWeight:
+                  AppFont.medium, // يمكنك تجربة FontWeight.w400 أو w700 وهكذا
+              fontSize: 16,
+              color: Colors.white),
+        ),
+      ),
+      home: ChangeLanguage(),
     );
   }
 }
