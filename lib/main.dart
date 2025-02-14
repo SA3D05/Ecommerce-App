@@ -1,9 +1,11 @@
+import 'package:ecommerceapp/core/constant/color.dart';
 import 'package:ecommerceapp/core/constant/font.dart';
-import 'package:ecommerceapp/core/localization/change_local.dart';
+// import 'package:ecommerceapp/core/localization/change_local.dart';
 import 'package:ecommerceapp/core/localization/translation.dart';
 import 'package:ecommerceapp/core/services/services.dart';
 import 'package:ecommerceapp/routes.dart';
-import 'package:ecommerceapp/view/screen/change_language.dart';
+import 'package:ecommerceapp/view/screen/auth/login.dart';
+// import 'package:ecommerceapp/view/screen/change_language.dart';
 // import 'package:ecommerceapp/view/screen/on_boarding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -22,14 +24,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    LocaleController controller = Get.put(LocaleController());
+    // LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
-      locale: controller.language,
+      locale: Locale("en"),
+      //  controller.language,
+
       translations: AppTranslation(),
       routes: routes,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        primaryColor: AppColor.primary,
+        primaryColorLight: AppColor.light,
         fontFamily: "ElMessiri",
         textTheme: TextTheme(
           bodyLarge: TextStyle(
@@ -39,15 +45,15 @@ class MyApp extends StatelessWidget {
             fontSize: 32,
           ),
           bodySmall: TextStyle(
-              height: 1.2,
-              fontFamily: 'ElMessiri',
-              fontWeight:
-                  AppFont.medium, // يمكنك تجربة FontWeight.w400 أو w700 وهكذا
-              fontSize: 16,
-              color: Colors.white),
+            height: 1.2,
+            fontFamily: 'ElMessiri',
+            fontWeight:
+                AppFont.medium, // يمكنك تجربة FontWeight.w400 أو w700 وهكذا
+            fontSize: 16,
+          ),
         ),
       ),
-      home: ChangeLanguage(),
+      home: Login(),
     );
   }
 }

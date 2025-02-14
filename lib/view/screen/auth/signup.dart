@@ -15,7 +15,7 @@ class Login extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign In"),
+        title: Text("Sign Up"),
         leading: Icon(Icons.arrow_back_ios_new_rounded),
         centerTitle: true,
         elevation: 0.0,
@@ -31,12 +31,12 @@ class Login extends StatelessWidget {
             ),
             SizedBox(height: 100, child: Image.asset(AppImageAsset.logo)),
             const Text(
-              "Welcome Back",
+              "Welcome",
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 8),
             const Text(
-              "Sign in with your email and password or continue with social media",
+              "Sign un with your email and password or continue with social media",
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 24),
@@ -96,8 +96,8 @@ class Login extends StatelessWidget {
             // ),
             const SizedBox(height: 16),
             BottomMessageAuth(
-              message: 'Don\'t have an account?',
-              goToPageText: "Sign Up",
+              message: 'Alrady have an account?',
+              goToPageText: "Login",
               onPressed: () {},
             ),
           ],
