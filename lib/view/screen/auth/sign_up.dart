@@ -1,27 +1,23 @@
-import 'package:ecommerceapp/controller/auth/login_controller.dart';
-import 'package:ecommerceapp/core/constant/color.dart';
-import 'package:ecommerceapp/core/constant/image_asset.dart';
+import 'package:ecommerceapp/controller/auth/sign_up_controller.dart';
 import 'package:ecommerceapp/view/widget/auth/bottom_message.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_button_auth.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Login extends StatelessWidget {
-  const Login({super.key});
-
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
   @override
   Widget build(BuildContext context) {
-    LoginConrollerImpl controller = Get.put(LoginConrollerImpl());
+    SignUpConrollerImpl controller = Get.put(SignUpConrollerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Login"),
+        title: Text("Sign Up"),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: Scaffold().backgroundColor,
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+        padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
         child: Container(
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -32,25 +28,38 @@ class Login extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.start,
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 100, child: Image.asset(AppImageAsset.logo)),
+              SizedBox(
+                width: double.infinity,
+              ),
+              // SizedBox(height: 100, child: Image.asset(AppImageAsset.logo)),
+              const SizedBox(
+                height: 20,
+              ),
               const Text(
-                "Welcome Back",
+                "Welcome",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               const Text(
-                "Sign in with your email and password or continue with social media",
+                "Sign un with your email and password or continue with social media",
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
-              // here
+              CustomTextField(
+                controller: controller.username,
+                hintText: "Enter your username",
+                labelText: "Username",
+                icon: Icons.person,
+              ),
+              const SizedBox(height: 30),
               CustomTextField(
                 controller: controller.email,
                 hintText: "Enter your email",
                 labelText: "Email",
                 icon: Icons.email_outlined,
               ),
+
               const SizedBox(height: 30),
               CustomTextField(
                 controller: controller.password,
@@ -58,39 +67,17 @@ class Login extends StatelessWidget {
                 labelText: "Password",
                 icon: Icons.lock_outline_rounded,
               ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Checkbox(value: false, onChanged: (value) {}),
-                      const Text("Remember me"),
-                    ],
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      controller.goToForgotPassword();
-                    },
-                    child: const Text(
-                      "Forgot Password?",
-                      style: TextStyle(color: AppColor.primary),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              SizedBox(
+              const SizedBox(height: 30),
+              const SizedBox(
                   width: double.infinity,
                   height: 50,
                   child: CustomButtonAuth()),
-
               const SizedBox(height: 10),
               BottomMessageAuth(
-                message: 'Don\'t have an account?',
-                goToPageText: "Sign Up",
+                message: 'Alrady have an account?',
+                goToPageText: "Login",
                 onPressed: () {
-                  controller.goToSignUp();
+                  controller.goToLogin();
                 },
               ),
             ],
