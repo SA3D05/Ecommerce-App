@@ -1,19 +1,19 @@
-import 'package:ecommerceapp/controller/auth/forgot_password_controller.dart';
+import 'package:ecommerceapp/controller/auth/forgot_password/reset_password_controller.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_button_auth.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({super.key});
+class ResetPassword extends StatelessWidget {
+  const ResetPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ForgotPasswordControllerImpl controller =
-        Get.put(ForgotPasswordControllerImpl());
+    ResetPasswordControllerImpl controller =
+        Get.put(ResetPasswordControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Forgot Password"),
+        title: Text("Reset Password"),
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Scaffold().backgroundColor,
@@ -32,31 +32,36 @@ class ForgotPassword extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Check Email",
+                "Reset Password",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               const Text(
-                "Sign in with your email and password or continue with social media",
+                "ajshvfsda fisdhlal jfhasdjk fsdkj fhsda;sldjf",
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
-              // here
               CustomTextField(
-                controller: controller.email,
-                hintText: "Enter your email",
-                labelText: "Email",
-                icon: Icons.email_outlined,
+                controller: controller.password,
+                labelText: "New password",
+                hintText: "Enter the new password",
               ),
-
+              SizedBox(
+                height: 30,
+              ),
+              CustomTextField(
+                controller: controller.rePassword,
+                labelText: "New password",
+                hintText: "Re enter the new password",
+              ),
               const SizedBox(height: 30),
               SizedBox(
                   width: double.infinity,
                   height: 50,
                   child: CustomButtonAuth(
                     onPressed: () {
-                      controller.goToCheckCode();
+                      controller.goToSuccess();
                     },
                   )),
             ],

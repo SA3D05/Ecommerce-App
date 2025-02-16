@@ -14,6 +14,7 @@ import 'package:get/get.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
+
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 
   runApp(const MyApp());
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
     // LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
       locale: Locale("en"),
+
       //  controller.language,
 
       translations: AppTranslation(),

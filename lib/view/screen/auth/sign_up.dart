@@ -68,10 +68,12 @@ class SignUp extends StatelessWidget {
                 icon: Icons.lock_outline_rounded,
               ),
               const SizedBox(height: 30),
-              const SizedBox(
+              SizedBox(
                   width: double.infinity,
                   height: 50,
-                  child: CustomButtonAuth()),
+                  child: CustomButtonAuth(
+                    onPressed: () => controller.goToSuccess(),
+                  )),
               const SizedBox(height: 10),
               BottomMessageAuth(
                 message: 'Alrady have an account?',

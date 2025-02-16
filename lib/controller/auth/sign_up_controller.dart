@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 abstract class SignUpController extends GetxController {
   signUp() {}
+  goToSuccess() {}
   goToLogin() {}
 }
 
@@ -31,7 +32,13 @@ class SignUpConrollerImpl extends SignUpController {
 
   @override
   goToLogin() {
-    Get.toNamed(AppRoute.login);
+    Get.back();
     return super.goToLogin();
+  }
+
+  @override
+  goToSuccess() {
+    Get.toNamed(AppRoute.success);
+    return super.goToSuccess();
   }
 }

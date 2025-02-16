@@ -10,7 +10,7 @@ class ForgotPasswordControllerImpl extends ForgotPasswordController {
   late TextEditingController email;
   @override
   goToCheckCode() {
-    Get.toNamed(AppRoute.verifyEmail);
+    Get.toNamed(AppRoute.verifyEmailCode);
     return super.goToCheckCode();
   }
 

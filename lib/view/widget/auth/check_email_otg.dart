@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
-class Otp extends StatelessWidget {
-  const Otp({super.key});
+class CheckEmailOtg extends StatelessWidget {
+  final void Function(String)? onSubmit;
+  const CheckEmailOtg({super.key, this.onSubmit});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class Otp extends StatelessWidget {
           //handle validation or checks here
         },
         //runs when every textfield is filled
-        onSubmit: (String verificationCode) {}, // end onSubmit
+        onSubmit: onSubmit, // end onSubmit
       ),
     );
   }

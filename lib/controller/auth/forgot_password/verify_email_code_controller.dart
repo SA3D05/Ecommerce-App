@@ -1,12 +1,12 @@
 import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:get/get.dart';
 
-abstract class SignUpController extends GetxController {
-  CheckCode() {}
+abstract class VerifyEmailCodeController extends GetxController {
+  checkCode() {}
   goToResetPassword() {}
 }
 
-class SignUpConrollerImpl extends SignUpController {
+class VerifyEmailCodeControllerImpl extends VerifyEmailCodeController {
   // @override
   // void onInit() {
 
@@ -20,7 +20,7 @@ class SignUpConrollerImpl extends SignUpController {
 
   @override
   goToResetPassword() {
-    Get.toNamed(AppRoute.login);
+    Get.toNamed(AppRoute.resetPassword);
     return super.goToResetPassword();
   }
 }

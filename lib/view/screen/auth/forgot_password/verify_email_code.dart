@@ -1,17 +1,15 @@
-// import 'package:ecommerceapp/controller/auth/forgot_password_controller.dart';
-// import 'package:ecommerceapp/core/constant/color.dart';
+import 'package:ecommerceapp/controller/auth/forgot_password/verify_email_code_controller.dart';
 import 'package:ecommerceapp/view/widget/auth/check_email_otg.dart';
-import 'package:ecommerceapp/view/widget/auth/custom_button_auth.dart';
-// import 'package:ecommerceapp/view/widget/auth/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class VerifyEmail extends StatelessWidget {
-  const VerifyEmail({super.key});
+class VerifyEmailCode extends StatelessWidget {
+  const VerifyEmailCode({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // ForgotPasswordControllerImpl controller =
-    //     Get.put(ForgotPasswordControllerImpl());
+    VerifyEmailCodeController controller =
+        Get.put(VerifyEmailCodeControllerImpl());
     return Scaffold(
       appBar: AppBar(
         title: Text("Verify Email Code"),
@@ -43,12 +41,11 @@ class VerifyEmail extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
-              Otp(),
-              const SizedBox(height: 30),
-              SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: CustomButtonAuth()),
+              CheckEmailOtg(
+                onSubmit: (String code) {
+                  controller.goToResetPassword();
+                },
+              ),
             ],
           ),
         ),

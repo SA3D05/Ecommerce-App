@@ -1,21 +1,19 @@
-// import 'package:ecommerceapp/controller/auth/forgot_password_controller.dart';
-// import 'package:ecommerceapp/core/constant/color.dart';
-// import 'package:ecommerceapp/view/widget/auth/check_email_otg.dart';
+import 'package:ecommerceapp/controller/auth/forgot_password/forgot_password_controller.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_button_auth.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_text_field.dart';
-// import 'package:ecommerceapp/view/widget/auth/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+class ForgotPassword extends StatelessWidget {
+  const ForgotPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // ForgotPasswordControllerImpl controller =
-    //     Get.put(ForgotPasswordControllerImpl());
+    ForgotPasswordControllerImpl controller =
+        Get.put(ForgotPasswordControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Reset Password"),
+        title: Text("Forgot Password"),
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Scaffold().backgroundColor,
@@ -34,26 +32,33 @@ class ResetPassword extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Reset Password",
+                "Check Email",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               const Text(
-                "ajshvfsda fisdhlal jfhasdjk fsdkj fhsda;sldjf",
+                "Sign in with your email and password or continue with social media",
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
+              // here
               CustomTextField(
-                controller: TextEditingController(),
-                labelText: "New password",
-                hintText: "Enter the new password",
+                controller: controller.email,
+                hintText: "Enter your email",
+                labelText: "Email",
+                icon: Icons.email_outlined,
               ),
+
               const SizedBox(height: 30),
               SizedBox(
                   width: double.infinity,
                   height: 50,
-                  child: CustomButtonAuth()),
+                  child: CustomButtonAuth(
+                    onPressed: () {
+                      controller.goToCheckCode();
+                    },
+                  )),
             ],
           ),
         ),
