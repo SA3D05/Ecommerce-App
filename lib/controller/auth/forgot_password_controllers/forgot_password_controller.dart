@@ -3,15 +3,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class ForgotPasswordController extends GetxController {
-  goToVerifyEmail() {}
+  checkEmail() {}
 }
 
 class ForgotPasswordControllerImpl extends ForgotPasswordController {
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
   late TextEditingController email;
   @override
-  goToVerifyEmail() {
-    Get.toNamed(AppRoute.verifyEmailForgotPassword);
-    return super.goToVerifyEmail();
+  checkEmail() {
+    var formData = formState.currentState;
+    if (formData!.validate()) {
+      Get.toNamed(AppRoute.verifyEmailForgotPassword);
+    } else {
+      Get.snackbar("Error", "make shure all the fields in a good form");
+    }
+
+    return super.checkEmail();
   }
 
   @override

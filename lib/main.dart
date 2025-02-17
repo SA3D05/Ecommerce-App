@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/binding.dart';
 import 'package:ecommerceapp/core/constant/color.dart';
 import 'package:ecommerceapp/core/constant/font.dart';
 // import 'package:ecommerceapp/core/localization/change_local.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
+      initialBinding: AppBinding(),
       home: Login(),
     );
   }
