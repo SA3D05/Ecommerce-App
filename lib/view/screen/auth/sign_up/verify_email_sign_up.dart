@@ -1,19 +1,18 @@
-import 'package:ecommerceapp/controller/auth/forgot_password_controllers/forgot_password_controller.dart';
-import 'package:ecommerceapp/view/widget/auth/custom_button_auth.dart';
-import 'package:ecommerceapp/view/widget/auth/custom_text_field.dart';
+import 'package:ecommerceapp/controller/auth/sign_up_controllers/veify_email_sign_up_controller.dart';
+import 'package:ecommerceapp/view/widget/auth/check_email_otg.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ForgotPassword extends StatelessWidget {
-  const ForgotPassword({super.key});
+class VerifyEmailSignUp extends StatelessWidget {
+  const VerifyEmailSignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    ForgotPasswordControllerImpl controller =
-        Get.put(ForgotPasswordControllerImpl());
+    VeifyEmailSignUpControllerImpl controller =
+        Get.put(VeifyEmailSignUpControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Forgot Password"),
+        title: Text("Check Your Email"),
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Scaffold().backgroundColor,
@@ -32,33 +31,21 @@ class ForgotPassword extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Check Email",
+                "Enter the Verification Code 🔐",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               const Text(
-                "Sign in with your email and password or continue with social media",
+                "We've sent a 6-digit verification code to your email. Please enter the code below to verify your account.",
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
-              // here
-              CustomTextField(
-                controller: controller.email,
-                hintText: "Enter your email",
-                labelText: "Email",
-                icon: Icons.email_outlined,
+              CheckEmailOtg(
+                onSubmit: (String code) {
+                  controller.goToSuccess();
+                },
               ),
-
-              const SizedBox(height: 30),
-              SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: CustomButtonAuth(
-                    onPressed: () {
-                      controller.goToVerifyEmail();
-                    },
-                  )),
             ],
           ),
         ),

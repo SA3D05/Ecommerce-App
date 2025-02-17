@@ -6,22 +6,27 @@ class CustomTextField extends StatelessWidget {
   final String labelText;
   final String hintText;
   final IconData? icon;
+  final String? Function(String?)? validator;
   const CustomTextField({
     super.key,
     required this.controller,
     required this.labelText,
     required this.hintText,
     this.icon,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      validator: validator,
+      // onFieldSubmitted: validator,
       cursorHeight: 25,
       cursorColor: AppColor.gray,
       style: Theme.of(context).textTheme.bodySmall,
       decoration: InputDecoration(
+        errorStyle: TextStyle(fontSize: 14),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 25,

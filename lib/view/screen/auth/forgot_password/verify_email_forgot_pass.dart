@@ -1,18 +1,18 @@
-import 'package:ecommerceapp/controller/auth/forgot_password/verify_email_code_controller.dart';
+import 'package:ecommerceapp/controller/auth/forgot_password_controllers/verify_email_forgot_pass_controller.dart';
 import 'package:ecommerceapp/view/widget/auth/check_email_otg.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class VerifyEmailCode extends StatelessWidget {
-  const VerifyEmailCode({super.key});
+class VerifyEmailForgotPassword extends StatelessWidget {
+  const VerifyEmailForgotPassword({super.key});
 
   @override
   Widget build(BuildContext context) {
-    VerifyEmailCodeController controller =
-        Get.put(VerifyEmailCodeControllerImpl());
+    VerifyEmailForgotPasswordControllerImpl controller =
+        Get.put(VerifyEmailForgotPasswordControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Verify Email Code"),
+        title: Text("Check Your Email"),
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Scaffold().backgroundColor,
@@ -31,13 +31,13 @@ class VerifyEmailCode extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Check Email",
+                "Enter the Verification Code 🔐",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               const Text(
-                "ajshvfsda fisdhlal jfhasdjk fsdkj fhsda;sldjf",
+                "We've sent a 6-digit verification code to your email. Please enter the code below to verify your account.",
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),

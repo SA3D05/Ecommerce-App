@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/controller/auth/sign_up_controller.dart';
+import 'package:ecommerceapp/controller/auth/sign_up_controllers/sign_up_controller.dart';
 import 'package:ecommerceapp/view/widget/auth/bottom_message.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_button_auth.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_text_field.dart';
@@ -72,7 +72,7 @@ class SignUp extends StatelessWidget {
                   width: double.infinity,
                   height: 50,
                   child: CustomButtonAuth(
-                    onPressed: () => controller.goToSuccess(),
+                    onPressed: () => controller.goToVerifyEmail(),
                   )),
               const SizedBox(height: 10),
               BottomMessageAuth(

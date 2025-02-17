@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class ForgotPasswordController extends GetxController {
-  goToCheckCode() {}
+  goToVerifyEmail() {}
 }
 
 class ForgotPasswordControllerImpl extends ForgotPasswordController {
   late TextEditingController email;
   @override
-  goToCheckCode() {
-    Get.toNamed(AppRoute.verifyEmailCode);
-    return super.goToCheckCode();
+  goToVerifyEmail() {
+    Get.toNamed(AppRoute.verifyEmailForgotPassword);
+    return super.goToVerifyEmail();
   }
 
   @override

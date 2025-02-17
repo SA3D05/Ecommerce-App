@@ -1,4 +1,4 @@
-import 'package:ecommerceapp/controller/auth/forgot_password/reset_password_controller.dart';
+import 'package:ecommerceapp/controller/auth/forgot_password_controllers/reset_password_controller.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_button_auth.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_text_field.dart';
 import 'package:flutter/material.dart';
@@ -32,13 +32,13 @@ class ResetPassword extends StatelessWidget {
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text(
-                "Reset Password",
+                "Reset Your Password 🔒",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               const Text(
-                "ajshvfsda fisdhlal jfhasdjk fsdkj fhsda;sldjf",
+                "Enter a new password for your account. Make sure it's strong and secure",
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 abstract class SignUpController extends GetxController {
   signUp() {}
-  goToSuccess() {}
+  goToVerifyEmail() {}
   goToLogin() {}
 }
 
@@ -37,8 +37,8 @@ class SignUpConrollerImpl extends SignUpController {
   }
 
   @override
-  goToSuccess() {
-    Get.toNamed(AppRoute.success);
-    return super.goToSuccess();
+  goToVerifyEmail() {
+    Get.toNamed(AppRoute.verifyEmailSignUp);
+    return super.goToVerifyEmail();
   }
 }

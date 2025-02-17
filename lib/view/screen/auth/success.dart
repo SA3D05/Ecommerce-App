@@ -1,4 +1,5 @@
-import 'package:ecommerceapp/controller/auth/forgot_password/success_controller.dart';
+import 'package:ecommerceapp/controller/auth/forgot_password_controllers/success_controller.dart';
+import 'package:ecommerceapp/core/constant/color.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_button_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -29,14 +30,29 @@ class Success extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.start,
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Icon(
+                Icons.check_circle_outline_rounded,
+                size: 100,
+                color: AppColor.primary,
+                shadows: [
+                  Shadow(
+                    offset: Offset(1, 3),
+                    color: AppColor.primary,
+                    blurRadius: 11,
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
               const Text(
-                "Success",
+                "Success! 🎉",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 8),
               const Text(
-                "your password has been reset successfully",
+                "Your account is now ready to use. You can login and enjoy all the features.",
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 30),
