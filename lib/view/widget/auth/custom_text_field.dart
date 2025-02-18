@@ -5,7 +5,9 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final String labelText;
   final String hintText;
-  final IconData? icon;
+  final Widget? icon;
+  final bool isDigit;
+  final bool scureText;
   final String? Function(String?)? validator;
   const CustomTextField({
     super.key,
@@ -14,6 +16,8 @@ class CustomTextField extends StatelessWidget {
     required this.hintText,
     this.icon,
     this.validator,
+    this.isDigit = false,
+    this.scureText = false,
   });
 
   @override
@@ -21,6 +25,8 @@ class CustomTextField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       validator: validator,
+      keyboardType: isDigit ? TextInputType.number : TextInputType.text,
+      obscureText: scureText,
       // onFieldSubmitted: validator,
       cursorHeight: 25,
       cursorColor: AppColor.gray,
@@ -44,7 +50,7 @@ class CustomTextField extends StatelessWidget {
         hintStyle: Theme.of(context).textTheme.bodyMedium?.copyWith(
               color: Colors.grey,
             ),
-        suffixIcon: icon != null ? Icon(icon, color: Colors.grey) : null,
+        suffixIcon: icon,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
           borderSide: const BorderSide(color: Colors.grey),

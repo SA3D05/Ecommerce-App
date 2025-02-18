@@ -4,11 +4,12 @@ import 'package:ecommerceapp/view/widget/change_language/button.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ChangeLanguage extends GetView<LocaleController> {
+class ChangeLanguage extends StatelessWidget {
   const ChangeLanguage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    LocaleController controller = Get.put(LocaleController());
     return Scaffold(
         body: Center(
       child: Column(

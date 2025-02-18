@@ -1,25 +1,39 @@
 import 'package:ecommerceapp/core/constant/routes.dart';
+import 'package:ecommerceapp/core/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class LoginController extends GetxController {
   login() {}
   goToSignUp() {}
+  hideField() {}
+
   goToForgotPassword() {}
 }
 
 class LoginConrollerImpl extends LoginController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
+  bool isHide = true;
+
   late TextEditingController email;
   late TextEditingController password;
+
+  @override
+  hideField() {
+    isHide = !isHide;
+    update();
+    return super.hideField();
+  }
+
   @override
   login() {
-    var formData = formState.currentState;
-    if (formData!.validate()) {
-      print("valid");
-    } else {
-      print("not valid");
-    }
+    Get.find<AppServices>().sharedPreferences.clear();
+    print("clear ================="); // var formData = formState.currentState;
+    // if (formData!.validate()) {
+    //   print("valid");
+    // } else {
+    //   print("not valid");
+    // }
     return super.login();
   }
 

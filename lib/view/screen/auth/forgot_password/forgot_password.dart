@@ -50,7 +50,7 @@ class ForgotPassword extends StatelessWidget {
                   controller: controller.email,
                   hintText: "Enter your email",
                   labelText: "Email",
-                  icon: Icons.email_outlined,
+                  icon: Icon(Icons.email_outlined),
                   validator: (val) => validInput(val, "email", 10, 100),
                 ),
 

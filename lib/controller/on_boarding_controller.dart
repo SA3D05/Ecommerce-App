@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/core/constant/routes.dart';
+import 'package:ecommerceapp/core/services/services.dart';
 import 'package:ecommerceapp/data/data_source/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -31,7 +32,12 @@ class OnBoardingControllerImpl extends OnBoardingController {
   nextPage() {
     currentIndex++;
     if (currentIndex > onBoardingList.length - 1) {
-      Get.toNamed(AppRoute.login);
+      // set user alrady watched onboarding on shared prefrences.
+      Get.find<AppServices>()
+          .sharedPreferences
+          .setBool("watched_onboarding", true);
+
+      Get.offAllNamed(AppRoute.login);
     } else {
       pageController.animateToPage(currentIndex,
           duration: Duration(milliseconds: 350), curve: Curves.easeInOut);

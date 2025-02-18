@@ -5,6 +5,7 @@ import 'package:ecommerceapp/core/functions/input_validator.dart';
 import 'package:ecommerceapp/view/widget/auth/bottom_message.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_button_auth.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_text_field.dart';
+import 'package:ecommerceapp/core/widget/exit_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,16 +14,16 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // LoginConrollerImpl controller = Get.put(LoginConrollerImpl());
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Login"),
-        centerTitle: true,
-        elevation: 0.0,
-        backgroundColor: Scaffold().backgroundColor,
-      ),
-      body: GetBuilder<LoginConrollerImpl>(
-        builder: (controller) => Padding(
+    LoginConrollerImpl controller = Get.find();
+    return ExitApp(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text("Login"),
+          centerTitle: true,
+          elevation: 0.0,
+          backgroundColor: Scaffold().backgroundColor,
+        ),
+        body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
           child: Container(
             padding: EdgeInsets.all(10),
@@ -53,17 +54,29 @@ class Login extends StatelessWidget {
                       controller: controller.email,
                       hintText: "Enter your email",
                       labelText: "Email",
-                      icon: Icons.email_outlined,
+                      icon: Icon(Icons.email_outlined),
+
                       // onFieldSubmitted: ,
 
                       validator: (val) => validInput(val, "email", 10, 100)),
                   const SizedBox(height: 30),
-                  CustomTextField(
-                    controller: controller.password,
-                    hintText: "Enter your password",
-                    labelText: "Password",
-                    icon: Icons.lock_outline_rounded,
-                    validator: (val) => validInput(val, "password", 8, 30),
+
+                  // ========================================================  PASSWORD FIELD
+                  GetBuilder<LoginConrollerImpl>(
+                    builder: (controller) => CustomTextField(
+                      controller: controller.password,
+                      scureText: controller.isHide,
+                      hintText: "Enter your password",
+                      labelText: "Password",
+                      icon: IconButton(
+                          onPressed: () {
+                            controller.hideField();
+                          },
+                          icon: Icon(controller.isHide
+                              ? Icons.remove_red_eye_rounded
+                              : Icons.remove_red_eye_outlined)),
+                      validator: (val) => validInput(val, "password", 8, 30),
+                    ),
                   ),
                   const SizedBox(height: 16),
                   Row(

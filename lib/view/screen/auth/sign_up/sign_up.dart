@@ -55,7 +55,7 @@ class SignUp extends StatelessWidget {
                     controller: controller.username,
                     hintText: "Enter your username",
                     labelText: "Username",
-                    icon: Icons.person,
+                    icon: Icon(Icons.person),
                     validator: (val) => validInput(val, "username", 5, 20),
                   ),
                   const SizedBox(height: 30),
@@ -64,17 +64,27 @@ class SignUp extends StatelessWidget {
                       controller: controller.email,
                       hintText: "Enter your email",
                       labelText: "Email",
-                      icon: Icons.email_outlined,
+                      icon: Icon(Icons.email_outlined),
                       validator: (val) => validInput(val, "email", 10, 100)),
 
                   const SizedBox(height: 30),
                   // ========================================================  PASSWORD FIELD
-                  CustomTextField(
+                  GetBuilder<SignUpConrollerImpl>(
+                    builder: (controller) => CustomTextField(
                       controller: controller.password,
+                      scureText: controller.isHide,
                       hintText: "Enter your password",
                       labelText: "Password",
-                      icon: Icons.lock_outline_rounded,
-                      validator: (val) => validInput(val, "password", 8, 30)),
+                      icon: IconButton(
+                          onPressed: () {
+                            controller.hideField();
+                          },
+                          icon: Icon(controller.isHide
+                              ? Icons.remove_red_eye_rounded
+                              : Icons.remove_red_eye_outlined)),
+                      validator: (val) => validInput(val, "password", 8, 30),
+                    ),
+                  ),
                   const SizedBox(height: 30),
                   // ========================================================  SUBMIT BUTTON
                   SizedBox(

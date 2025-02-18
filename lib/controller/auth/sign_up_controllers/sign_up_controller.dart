@@ -5,14 +5,24 @@ import 'package:get/get.dart';
 abstract class SignUpConroller extends GetxController {
   signUp() {}
 
+  hideField() {}
+
   goToLogin() {}
 }
 
 class SignUpConrollerImpl extends SignUpConroller {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
+  bool isHide = true;
   late TextEditingController username;
   late TextEditingController email;
   late TextEditingController password;
+
+  @override
+  hideField() {
+    isHide = !isHide;
+    update();
+    return super.hideField();
+  }
 
   @override
   void onInit() {
@@ -43,7 +53,6 @@ class SignUpConrollerImpl extends SignUpConroller {
   signUp() {
     var formData = formState.currentState;
     if (formData!.validate()) {
-      Get.delete<SignUpConrollerImpl>();
       Get.toNamed(AppRoute.verifyEmailSignUp);
     } else {
       Get.snackbar("Error", "make shure all the fields in a good form");
