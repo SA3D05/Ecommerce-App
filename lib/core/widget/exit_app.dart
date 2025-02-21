@@ -25,7 +25,7 @@ class _ExitAppState extends State<ExitApp> {
 
           DateTime now = DateTime.now();
           if (lastPressed == null ||
-              now.difference(lastPressed!) > Duration(seconds: 2)) {
+              now.difference(lastPressed!) > const Duration(seconds: 2)) {
             lastPressed = now;
             Fluttertoast.showToast(msg: "Press again to exit");
           }

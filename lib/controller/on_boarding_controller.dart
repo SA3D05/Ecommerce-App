@@ -40,7 +40,7 @@ class OnBoardingControllerImpl extends OnBoardingController {
       Get.offAllNamed(AppRoute.login);
     } else {
       pageController.animateToPage(currentIndex,
-          duration: Duration(milliseconds: 350), curve: Curves.easeInOut);
+          duration: const Duration(milliseconds: 350), curve: Curves.easeInOut);
     }
   }
 }

@@ -14,15 +14,15 @@ class ForgotPassword extends StatelessWidget {
         Get.put(ForgotPasswordControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Forgot Password"),
+        title: const Text("Forgot Password"),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: Scaffold().backgroundColor,
+        backgroundColor: const Scaffold().backgroundColor,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
         child: Container(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: const Color.fromARGB(255, 235, 232, 232),
@@ -50,7 +50,7 @@ class ForgotPassword extends StatelessWidget {
                   controller: controller.email,
                   hintText: "Enter your email",
                   labelText: "Email",
-                  icon: Icon(Icons.email_outlined),
+                  icon: const Icon(Icons.email_outlined),
                   validator: (val) => validInput(val, "email", 10, 100),
                 ),
 

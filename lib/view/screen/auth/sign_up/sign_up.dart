@@ -13,15 +13,15 @@ class SignUp extends StatelessWidget {
     Get.lazyPut(() => SignUpConrollerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sign Up"),
+        title: const Text("Sign Up"),
         centerTitle: true,
         elevation: 0.0,
       ),
       body: GetBuilder<SignUpConrollerImpl>(
         builder: (controller) => Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               color: const Color.fromARGB(255, 235, 232, 232),
@@ -32,7 +32,7 @@ class SignUp extends StatelessWidget {
                 // mainAxisAlignment: MainAxisAlignment.start,
                 // crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: double.infinity,
                   ),
                   // SizedBox(height: 100, child: Image.asset(AppImageAsset.logo)),
@@ -55,7 +55,7 @@ class SignUp extends StatelessWidget {
                     controller: controller.username,
                     hintText: "Enter your username",
                     labelText: "Username",
-                    icon: Icon(Icons.person),
+                    icon: const Icon(Icons.person),
                     validator: (val) => validInput(val, "username", 5, 20),
                   ),
                   const SizedBox(height: 30),
@@ -64,7 +64,7 @@ class SignUp extends StatelessWidget {
                       controller: controller.email,
                       hintText: "Enter your email",
                       labelText: "Email",
-                      icon: Icon(Icons.email_outlined),
+                      icon: const Icon(Icons.email_outlined),
                       validator: (val) => validInput(val, "email", 10, 100)),
 
                   const SizedBox(height: 30),

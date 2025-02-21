@@ -12,15 +12,15 @@ class Success extends StatelessWidget {
     SuccessControllerImpl controller = Get.put(SuccessControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Success"),
+        title: const Text("Success"),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: Scaffold().backgroundColor,
+        backgroundColor: const Scaffold().backgroundColor,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
         child: Container(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: const Color.fromARGB(255, 235, 232, 232),
@@ -30,7 +30,7 @@ class Success extends StatelessWidget {
             // mainAxisAlignment: MainAxisAlignment.start,
             // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.check_circle_outline_rounded,
                 size: 100,
                 color: AppColor.primary,
@@ -42,7 +42,7 @@ class Success extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               const Text(

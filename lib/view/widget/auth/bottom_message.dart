@@ -20,7 +20,7 @@ class BottomMessageAuth extends StatelessWidget {
         Text(message),
         TextButton(
           onPressed: onPressed,
-          child: Text(goToPageText, style: TextStyle(color: AppColor.primary)),
+          child: Text(goToPageText, style: const TextStyle(color: AppColor.primary)),
         ),
       ],
     );

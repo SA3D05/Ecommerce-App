@@ -12,15 +12,15 @@ class VerifyEmailForgotPassword extends StatelessWidget {
         Get.put(VerifyEmailForgotPasswordControllerImpl());
     return Scaffold(
       appBar: AppBar(
-        title: Text("Check Your Email"),
+        title: const Text("Check Your Email"),
         centerTitle: true,
         elevation: 0.0,
-        backgroundColor: Scaffold().backgroundColor,
+        backgroundColor: const Scaffold().backgroundColor,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 10),
         child: Container(
-          padding: EdgeInsets.all(30),
+          padding: const EdgeInsets.all(30),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             color: const Color.fromARGB(255, 235, 232, 232),

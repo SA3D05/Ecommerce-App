@@ -17,7 +17,7 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImpl> {
             controller.nextPage();
           },
           style: ElevatedButton.styleFrom(
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
               color: Colors.white,
               fontFamily: 'ElMessiri',
               fontWeight: AppFont.semiBold,

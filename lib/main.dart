@@ -1,11 +1,10 @@
-import 'dart:ui';
-
 import 'package:ecommerceapp/binding.dart';
 import 'package:ecommerceapp/core/constant/color.dart';
 import 'package:ecommerceapp/core/constant/font.dart';
 import 'package:ecommerceapp/core/localization/translation.dart';
 import 'package:ecommerceapp/core/services/services.dart';
 import 'package:ecommerceapp/routes.dart';
+import 'package:ecommerceapp/test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -28,6 +27,7 @@ class MyApp extends StatelessWidget {
     // LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      // home: const Testor(),
       // setup app language
       locale: Locale(appServices.sharedPreferences.getString("lang") ??
           Get.deviceLocale!.languageCode),
@@ -37,14 +37,13 @@ class MyApp extends StatelessWidget {
       initialRoute: "/",
 
       initialBinding: AppBinding(),
-
       title: 'Flutter Demo',
 
       theme: ThemeData(
         primaryColor: AppColor.primary,
         primaryColorLight: AppColor.light,
         fontFamily: "ElMessiri",
-        textTheme: TextTheme(
+        textTheme: const TextTheme(
           bodyLarge: TextStyle(
             fontFamily: 'ElMessiri',
             fontWeight:

@@ -8,7 +8,7 @@ class AppMiddleware extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     if (appServices.sharedPreferences.getBool("watched_onboarding") != null) {
-      return RouteSettings(name: AppRoute.login);
+      return const RouteSettings(name: AppRoute.login);
     }
     return null;
   }

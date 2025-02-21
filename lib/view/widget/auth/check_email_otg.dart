@@ -13,10 +13,10 @@ class CheckEmailOtg extends StatelessWidget {
         numberOfFields: 3,
         fieldHeight: 50,
         fieldWidth: 60,
-        margin: EdgeInsets.all(10),
-        contentPadding: EdgeInsets.all(5),
+        margin: const EdgeInsets.all(10),
+        contentPadding: const EdgeInsets.all(5),
         borderRadius: BorderRadius.circular(15),
-        borderColor: Color(0xFF512DA8),
+        borderColor: const Color(0xFF512DA8),
         //set to true to show as box or false to show as dash
         showFieldAsBox: true,
         enabledBorderColor: Colors.black,

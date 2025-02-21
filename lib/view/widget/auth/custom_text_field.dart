@@ -32,7 +32,7 @@ class CustomTextField extends StatelessWidget {
       cursorColor: AppColor.gray,
       style: Theme.of(context).textTheme.bodySmall,
       decoration: InputDecoration(
-        errorStyle: TextStyle(fontSize: 14),
+        errorStyle: const TextStyle(fontSize: 14),
         floatingLabelBehavior: FloatingLabelBehavior.always,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 25,
@@ -57,7 +57,7 @@ class CustomTextField extends StatelessWidget {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: AppColor.gray,
             width: 2,
           ),

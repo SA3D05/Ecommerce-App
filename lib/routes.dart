@@ -12,17 +12,17 @@ import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
-  GetPage(name: "/", page: () => ChangeLanguage(), middlewares: [
+  GetPage(name: "/", page: () => const ChangeLanguage(), middlewares: [
     AppMiddleware(),
   ]),
-  GetPage(name: AppRoute.login, page: () => Login()),
-  GetPage(name: AppRoute.signUp, page: () => SignUp()),
-  GetPage(name: AppRoute.forgotPassword, page: () => ForgotPassword()),
+  GetPage(name: AppRoute.login, page: () => const Login()),
+  GetPage(name: AppRoute.signUp, page: () => const SignUp()),
+  GetPage(name: AppRoute.forgotPassword, page: () => const ForgotPassword()),
   GetPage(
       name: AppRoute.verifyEmailForgotPassword,
-      page: () => VerifyEmailForgotPassword()),
-  GetPage(name: AppRoute.verifyEmailSignUp, page: () => VerifyEmailSignUp()),
-  GetPage(name: AppRoute.resetPassword, page: () => ResetPassword()),
-  GetPage(name: AppRoute.success, page: () => Success()),
-  GetPage(name: AppRoute.onBoarding, page: () => OnBoarding()),
+      page: () => const VerifyEmailForgotPassword()),
+  GetPage(name: AppRoute.verifyEmailSignUp, page: () => const VerifyEmailSignUp()),
+  GetPage(name: AppRoute.resetPassword, page: () => const ResetPassword()),
+  GetPage(name: AppRoute.success, page: () => const Success()),
+  GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
 ];

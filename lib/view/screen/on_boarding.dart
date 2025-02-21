@@ -11,7 +11,7 @@ class OnBoarding extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(OnBoardingControllerImpl());
-    return Scaffold(
+    return const Scaffold(
       body: Column(
         children: [
           Expanded(flex: 4, child: SlideOnBoarding()),

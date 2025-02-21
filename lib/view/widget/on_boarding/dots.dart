@@ -18,7 +18,7 @@ class DotsOnBoarding extends StatelessWidget {
                   (index) => Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 2),
                     child: AnimatedContainer(
-                      duration: Duration(milliseconds: 500),
+                      duration: const Duration(milliseconds: 500),
                       curve: Curves.easeInOut,
                       height: 10,
                       width: index == controller.currentIndex ? 20 : 10,

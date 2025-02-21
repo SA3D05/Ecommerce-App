@@ -20,7 +20,7 @@ class ChangeLanguage extends StatelessWidget {
             'choose_a_language'.tr,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           CustomButtonChangeLanguage(

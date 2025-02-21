@@ -15,14 +15,14 @@ class CustomButtonChangeLanguage extends StatelessWidget {
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
           ),
-          padding: WidgetStatePropertyAll(
+          padding: const WidgetStatePropertyAll(
             EdgeInsets.symmetric(horizontal: 100),
           ),
         ),
         onPressed: onPressed,
         child: Text(
           textButton,
-          style: TextStyle(
+          style: const TextStyle(
               height: 1.2,
               fontFamily: 'ElMessiri',
               fontWeight:
