@@ -17,14 +17,14 @@ class Crud {
           dynamic response = jsonDecode(request.body);
           return Right(response);
         } else {
-          return left(StatusRequest.serverfailure);
+          return const Left(StatusRequest.serverfailure);
         }
       } else {
         return const Left(StatusRequest.nointernet);
       }
     } catch (e) {
       print("ERROR IN POST DATA FUNCTION : $e");
-      return left(StatusRequest.serverfailure);
+      return const Left(StatusRequest.serverfailure);
     }
   }
 }

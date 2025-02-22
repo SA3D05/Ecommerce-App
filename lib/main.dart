@@ -4,7 +4,7 @@ import 'package:ecommerceapp/core/constant/font.dart';
 import 'package:ecommerceapp/core/localization/translation.dart';
 import 'package:ecommerceapp/core/services/services.dart';
 import 'package:ecommerceapp/routes.dart';
-import 'package:ecommerceapp/test.dart';
+import 'package:ecommerceapp/test_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
     // LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: const Testor(),
+      home: const TestData(),
       // setup app language
       locale: Locale(appServices.sharedPreferences.getString("lang") ??
           Get.deviceLocale!.languageCode),
