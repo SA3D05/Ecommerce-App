@@ -24,6 +24,10 @@ class TestData extends StatelessWidget {
                 itemCount: controller.data.length,
                 itemBuilder: (context, index) => Text("${controller.data}"),
               );
+            case StatusRequest.nointernet:
+              const Center(
+                child: Text("NO INTERNET"),
+              );
             default:
               const Center(
                 child: Text("NO DATA"),

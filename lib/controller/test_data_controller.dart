@@ -12,10 +12,15 @@ class TestDataController extends GetxController {
   getData() async {
     statusRequest = StatusRequest.loading;
     var response = testData.getData();
+    print("=" * 20);
+    print(response);
 
     statusRequest = handlingData(response);
     if (statusRequest == StatusRequest.success) {
       data.addAll(response['data']);
+    } else {
+      print("=" * 10);
+      print(statusRequest);
     }
     update();
   }
