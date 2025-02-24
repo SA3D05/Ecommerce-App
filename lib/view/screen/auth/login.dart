@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/controller/auth/login_controller.dart';
+import 'package:ecommerceapp/core/class/status_request.dart';
 import 'package:ecommerceapp/core/constant/color.dart';
 import 'package:ecommerceapp/core/constant/image_asset.dart';
 import 'package:ecommerceapp/core/functions/input_validator.dart';
@@ -102,12 +103,26 @@ class Login extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: CustomButtonAuth(
-                        onPressed: () => controller.login(),
-                      )),
+                  GetBuilder<LoginConrollerImpl>(
+                    builder: (buttonController) => SizedBox(
+                        width: double.infinity,
+                        height: 50,
+                        child: CustomButtonAuth(
+                          content: buttonController.statusRequest ==
+                                  StatusRequest.loading
+                              ? const CircularProgressIndicator(
+                                  color: AppColor.light,
+                                )
+                              : const Text(
+                                  "Sign Up",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                  ),
+                                ),
+                          onPressed: () => controller.login(),
+                        )),
+                  ),
 
                   const SizedBox(height: 10),
                   BottomMessageAuth(

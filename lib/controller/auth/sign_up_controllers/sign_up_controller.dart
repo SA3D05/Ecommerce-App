@@ -69,7 +69,6 @@ class SignUpConrollerImpl extends SignUpConroller {
 
   @override
   void onInit() {
-    print("==================== init");
     username = TextEditingController();
     email = TextEditingController();
     phone = TextEditingController();
@@ -80,7 +79,6 @@ class SignUpConrollerImpl extends SignUpConroller {
 
   @override
   void dispose() {
-    print("==================== dispose");
     username.dispose();
     email.dispose();
     password.dispose();
