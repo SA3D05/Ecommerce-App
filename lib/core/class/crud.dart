@@ -15,18 +15,17 @@ class Crud {
 
         if (request.statusCode == 200 || request.statusCode == 201) {
           var response = jsonDecode(request.body);
-          print("*" * 10);
-          print(request.body);
+
           return Right(response);
         } else {
-          return const Left(StatusRequest.serverfailure);
+          return const Left(StatusRequest.serverFailure);
         }
       } else {
-        return const Left(StatusRequest.nointernet);
+        return const Left(StatusRequest.noInternet);
       }
     } catch (e) {
       print("ERROR IN POST DATA FUNCTION : $e");
-      return const Left(StatusRequest.serverfailure);
+      return const Left(StatusRequest.serverExeption);
     }
   }
 }

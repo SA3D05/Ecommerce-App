@@ -3,18 +3,22 @@ import 'package:flutter/material.dart';
 
 class CustomButtonAuth extends StatelessWidget {
   final void Function()? onPressed;
-  const CustomButtonAuth({super.key, this.onPressed});
+  final Widget content;
+  const CustomButtonAuth(
+      {super.key,
+      this.onPressed,
+      this.content = const Text("Continue",
+          style: TextStyle(color: Colors.white, fontSize: 24))});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: AppColor.primary,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      ),
-      onPressed: onPressed,
-      child: const Text("Continue",
-          style: TextStyle(color: Colors.white, fontSize: 24)),
-    );
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColor.primary,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        ),
+        onPressed: onPressed,
+        child: content);
   }
 }

@@ -10,11 +10,11 @@ class CheckEmailOtg extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: OtpTextField(
-        numberOfFields: 3,
+        numberOfFields: 5,
         fieldHeight: 50,
-        fieldWidth: 60,
-        margin: const EdgeInsets.all(10),
-        contentPadding: const EdgeInsets.all(5),
+        fieldWidth: 30,
+        // margin: const EdgeInsets.all(10),
+        // contentPadding: const EdgeInsets.all(5),
         borderRadius: BorderRadius.circular(15),
         borderColor: const Color(0xFF512DA8),
         //set to true to show as box or false to show as dash

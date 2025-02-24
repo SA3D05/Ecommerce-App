@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/controller/auth/sign_up_controllers/veify_email_sign_up_controller.dart';
+import 'package:ecommerceapp/core/class/status_request.dart';
 import 'package:ecommerceapp/view/widget/auth/check_email_otg.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,8 +9,7 @@ class VerifyEmailSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VeifyEmailSignUpControllerImpl controller =
-        Get.put(VeifyEmailSignUpControllerImpl());
+    Get.put(VeifyEmailSignUpControllerImpl());
     return Scaffold(
       appBar: AppBar(
         title: const Text("Check Your Email"),
@@ -41,9 +41,17 @@ class VerifyEmailSignUp extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
-              CheckEmailOtg(
-                onSubmit: (String code) {
-                  controller.goToSuccess();
+              GetBuilder<VeifyEmailSignUpControllerImpl>(
+                builder: (controller) {
+                  return controller.statusRequest == StatusRequest.loading
+                      ? const Center(
+                          child: CircularProgressIndicator(),
+                        )
+                      : CheckEmailOtg(
+                          onSubmit: (String code) {
+                            controller.checkCode(code);
+                          },
+                        );
                 },
               ),
             ],

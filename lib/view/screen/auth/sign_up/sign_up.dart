@@ -1,4 +1,6 @@
 import 'package:ecommerceapp/controller/auth/sign_up_controllers/sign_up_controller.dart';
+import 'package:ecommerceapp/core/class/status_request.dart';
+import 'package:ecommerceapp/core/constant/color.dart';
 import 'package:ecommerceapp/core/functions/input_validator.dart';
 import 'package:ecommerceapp/view/widget/auth/bottom_message.dart';
 import 'package:ecommerceapp/view/widget/auth/custom_button_auth.dart';
@@ -68,6 +70,16 @@ class SignUp extends StatelessWidget {
                       validator: (val) => validInput(val, "email", 10, 100)),
 
                   const SizedBox(height: 30),
+                  // ========================================================  PHONE FIELD
+                  CustomTextField(
+                      controller: controller.phone,
+                      hintText: "Enter your phone",
+                      isDigit: true,
+                      labelText: "Phone",
+                      icon: const Icon(Icons.phone),
+                      validator: (val) => validInput(val, "phone", 10, 10)),
+
+                  const SizedBox(height: 30),
                   // ========================================================  PASSWORD FIELD
                   GetBuilder<SignUpConrollerImpl>(
                     builder: (controller) => CustomTextField(
@@ -87,12 +99,22 @@ class SignUp extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   // ========================================================  SUBMIT BUTTON
-                  SizedBox(
-                      width: double.infinity,
-                      height: 50,
-                      child: CustomButtonAuth(
-                        onPressed: () => controller.signUp(),
-                      )),
+                  GetBuilder<SignUpConrollerImpl>(
+                    builder: (controllerButton) => SizedBox(
+                        width: double.infinity,
+                        height: 50,
+                        child: CustomButtonAuth(
+                          content: controllerButton.statusRequest ==
+                                  StatusRequest.loading
+                              ? const CircularProgressIndicator(
+                                  color: AppColor.light,
+                                )
+                              : const Text("Sign Up",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 24)),
+                          onPressed: () => controllerButton.signUp(),
+                        )),
+                  ),
                   const SizedBox(height: 10),
                   // ========================================================  GO TO LOGIN SCREEN
                   BottomMessageAuth(
