@@ -1,18 +1,50 @@
+import 'package:ecommerceapp/core/class/crud.dart';
+import 'package:ecommerceapp/core/class/status_request.dart';
 import 'package:ecommerceapp/core/constant/routes.dart';
+import 'package:ecommerceapp/core/functions/handling_data.dart';
+import 'package:ecommerceapp/data/data_source/static/remot/auth/forgot_password/reset_password.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
 abstract class ResetPasswordController extends GetxController {
-  goToSuccess() {}
+  resetPassword() {}
 }
 
 class ResetPasswordControllerImpl extends ResetPasswordController {
   late TextEditingController password;
   late TextEditingController rePassword;
+  StatusRequest? statusRequest;
+  ResetPasswordData resetPasswordData = ResetPasswordData(Get.find<Crud>());
+
+  GlobalKey<FormState> formState = GlobalKey<FormState>();
   @override
-  goToSuccess() {
-    Get.offAllNamed(AppRoute.success);
-    return super.goToSuccess();
+  resetPassword() async {
+    if (formState.currentState!.validate()) {
+      if (password.text != rePassword.text) {
+        return Fluttertoast.showToast(
+            toastLength: Toast.LENGTH_LONG,
+            msg: "error , make shur are same password");
+      }
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await resetPasswordData.getData(
+          Get.arguments['email'], password.text); // hna error
+      statusRequest = handlingData(response);
+      print("================================" + response);
+      if (statusRequest == StatusRequest.success) {
+        if (response['status'] == "success") {
+          Get.offNamed(AppRoute.success);
+        } else {
+          Fluttertoast.showToast(toastLength: Toast.LENGTH_LONG, msg: "Error");
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
+    } else {
+      Get.snackbar("Error", "make shure all the fields in a good form");
+    }
+    return super.resetPassword();
   }
 
   @override

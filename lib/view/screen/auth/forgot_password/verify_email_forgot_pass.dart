@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/controller/auth/forgot_password_controllers/verify_email_forgot_pass_controller.dart';
+import 'package:ecommerceapp/core/class/status_request.dart';
 import 'package:ecommerceapp/view/widget/auth/check_email_otg.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,8 +9,7 @@ class VerifyEmailForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VerifyEmailForgotPasswordControllerImpl controller =
-        Get.put(VerifyEmailForgotPasswordControllerImpl());
+    Get.put(VerifyEmailForgotPasswordControllerImpl());
     return Scaffold(
       appBar: AppBar(
         title: const Text("Check Your Email"),
@@ -41,10 +41,17 @@ class VerifyEmailForgotPassword extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 24),
-              CheckEmailOtg(
-                onSubmit: (String code) {
-                  controller.goToResetPassword();
-                },
+              GetBuilder<VerifyEmailForgotPasswordControllerImpl>(
+                builder: (controller) =>
+                    controller.statusRequest == StatusRequest.loading
+                        ? const Center(
+                            child: CircularProgressIndicator(),
+                          )
+                        : CheckEmailOtg(
+                            onSubmit: (String code) {
+                              controller.checkCode(code);
+                            },
+                          ),
               ),
             ],
           ),

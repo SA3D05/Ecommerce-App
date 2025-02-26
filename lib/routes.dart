@@ -13,19 +13,32 @@ import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
+  // ====================== ON BOARDING ============================\\
+
   GetPage(name: "/", page: () => const ChangeLanguage(), middlewares: [
     AppMiddleware(),
   ]),
+
+  GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
+
+  // ====================== AUTH ============================\\
+
   GetPage(name: AppRoute.login, page: () => const Login()),
+  GetPage(name: AppRoute.success, page: () => const Success()),
+//
   GetPage(name: AppRoute.signUp, page: () => const SignUp()),
+  GetPage(
+      name: AppRoute.verifyEmailSignUp, page: () => const VerifyEmailSignUp()),
+//
   GetPage(name: AppRoute.forgotPassword, page: () => const ForgotPassword()),
   GetPage(
       name: AppRoute.verifyEmailForgotPassword,
       page: () => const VerifyEmailForgotPassword()),
-  GetPage(
-      name: AppRoute.verifyEmailSignUp, page: () => const VerifyEmailSignUp()),
   GetPage(name: AppRoute.resetPassword, page: () => const ResetPassword()),
-  GetPage(name: AppRoute.success, page: () => const Success()),
-  GetPage(name: AppRoute.onBoarding, page: () => const OnBoarding()),
+
+  // ====================== HOME ============================\\
+
   GetPage(name: AppRoute.home, page: () => const Home()),
+
+  // ====================== END ============================\\
 ];
