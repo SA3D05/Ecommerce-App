@@ -1,4 +1,8 @@
 class AppRoute {
+  // ====================== TEMP ROUTES ============================\\
+
+  static const String addServer = "/addserver";
+
   // ====================== AUTH ============================\\
 
   static const String login = "/login";
@@ -13,6 +17,7 @@ class AppRoute {
 
   // ====================== ON BOARDING ============================\\
 
+  static const String changeLanguage = "/changelanguage";
   static const String onBoarding = "/onboarding";
 
   // ====================== HOME ============================\\

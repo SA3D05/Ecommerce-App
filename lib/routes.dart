@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/core/middleware/app_middleware.dart';
+// import 'package:ecommerceapp/view/screen/add_server.dart';
 import 'package:ecommerceapp/view/screen/auth/forgot_password/forgot_password.dart';
 import 'package:ecommerceapp/view/screen/auth/sign_up/verify_email_sign_up.dart';
 import 'package:ecommerceapp/view/screen/auth/success.dart';
@@ -13,6 +14,8 @@ import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:get/get.dart';
 
 List<GetPage<dynamic>>? routes = [
+  // ====================== TEMP ROUTES ============================\\
+  // GetPage(name: "/", page: () => const AddServer()),
   // ====================== ON BOARDING ============================\\
 
   GetPage(name: "/", page: () => const ChangeLanguage(), middlewares: [

@@ -2,7 +2,9 @@ import 'package:ecommerceapp/core/class/crud.dart';
 import 'package:ecommerceapp/core/class/status_request.dart';
 import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:ecommerceapp/core/functions/handling_data.dart';
+import 'package:ecommerceapp/core/services/services.dart';
 import 'package:ecommerceapp/data/data_source/static/remot/auth/login.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -16,6 +18,7 @@ abstract class LoginController extends GetxController {
 }
 
 class LoginConrollerImpl extends LoginController {
+  AppServices appServices = Get.find<AppServices>();
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   bool isHide = true;
 
@@ -44,6 +47,16 @@ class LoginConrollerImpl extends LoginController {
 
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
+          appServices.sharedPreferences
+              .setInt("id", response['data']['user_id']);
+          appServices.sharedPreferences
+              .setString("username", response['data']['user_name']);
+          appServices.sharedPreferences
+              .setString("email", response['data']['user_email']);
+          appServices.sharedPreferences
+              .setInt("phone", response['data']['user_phone']);
+          appServices.sharedPreferences.setInt("step", 2);
+
           Get.offAllNamed(AppRoute.home);
         } else {
           Fluttertoast.showToast(
@@ -62,8 +75,14 @@ class LoginConrollerImpl extends LoginController {
     return super.login();
   }
 
+  Future getFCMToken() async {
+    String? token = await FirebaseMessaging.instance.getToken();
+    print("====================== FCM Token: $token ======================");
+  }
+
   @override
   void onInit() {
+    getFCMToken();
     email = TextEditingController();
     password = TextEditingController();
 

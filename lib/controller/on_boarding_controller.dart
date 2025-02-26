@@ -33,9 +33,7 @@ class OnBoardingControllerImpl extends OnBoardingController {
     currentIndex++;
     if (currentIndex > onBoardingList.length - 1) {
       // set user alrady watched onboarding on shared prefrences.
-      Get.find<AppServices>()
-          .sharedPreferences
-          .setBool("watched_onboarding", true);
+      Get.find<AppServices>().sharedPreferences.setInt("step", 1);
 
       Get.offAllNamed(AppRoute.login);
     } else {
