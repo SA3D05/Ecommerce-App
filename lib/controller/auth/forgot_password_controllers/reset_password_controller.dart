@@ -14,7 +14,7 @@ abstract class ResetPasswordController extends GetxController {
 class ResetPasswordControllerImpl extends ResetPasswordController {
   late TextEditingController password;
   late TextEditingController rePassword;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   ResetPasswordData resetPasswordData = ResetPasswordData(Get.find<Crud>());
 
   GlobalKey<FormState> formState = GlobalKey<FormState>();
@@ -29,20 +29,23 @@ class ResetPasswordControllerImpl extends ResetPasswordController {
       statusRequest = StatusRequest.loading;
       update();
       var response = await resetPasswordData.getData(
-          Get.arguments['email'], password.text); // hna error
+          Get.arguments['email'].toString(), password.text); // hna error
       statusRequest = handlingData(response);
-      print("================================" + response);
       if (statusRequest == StatusRequest.success) {
         if (response['status'] == "success") {
           Get.offNamed(AppRoute.success);
         } else {
-          Fluttertoast.showToast(toastLength: Toast.LENGTH_LONG, msg: "Error");
+          Fluttertoast.showToast(
+              toastLength: Toast.LENGTH_LONG,
+              msg: "Error Try another password");
           statusRequest = StatusRequest.failure;
         }
       }
       update();
     } else {
-      Get.snackbar("Error", "make shure all the fields in a good form");
+      Fluttertoast.showToast(
+          toastLength: Toast.LENGTH_LONG,
+          msg: "make shure all the fields in a good form");
     }
     return super.resetPassword();
   }

@@ -9,10 +9,8 @@ class ResetPasswordData {
     String email,
     String password,
   ) async {
-    var response = await crud.postData(AppUrl.reserPassword, {
-      "email": email,
-      "password": password,
-    });
+    var response = await crud
+        .postData(AppUrl.reserPassword, {"email": email, "password": password});
     return response.fold(
       (l) => l,
       (r) => r,

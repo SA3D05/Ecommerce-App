@@ -21,7 +21,7 @@ class LoginConrollerImpl extends LoginController {
 
   late TextEditingController email;
   late TextEditingController password;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   LoginData loginData = LoginData(Get.find<Crud>());
 
   @override
@@ -74,13 +74,6 @@ class LoginConrollerImpl extends LoginController {
   goToForgotPassword() {
     Get.toNamed(AppRoute.forgotPassword);
     return super.goToForgotPassword();
-  }
-
-  @override
-  void dispose() {
-    email.dispose();
-    password.dispose();
-    super.dispose();
   }
 
   @override

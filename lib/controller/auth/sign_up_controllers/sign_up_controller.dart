@@ -17,12 +17,13 @@ abstract class SignUpConroller extends GetxController {
 
 class SignUpConrollerImpl extends SignUpConroller {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
+
   bool isHide = true;
   late TextEditingController username;
   late TextEditingController email;
   late TextEditingController phone;
   late TextEditingController password;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   SignUpData signUpData = SignUpData(Get.find<Crud>());
 
   @override

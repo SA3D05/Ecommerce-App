@@ -12,7 +12,7 @@ abstract class VerifyEmailForgotPasswordController extends GetxController {
 
 class VerifyEmailForgotPasswordControllerImpl
     extends VerifyEmailForgotPasswordController {
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   late String email;
   VerifyCodeData verifyCodeData = VerifyCodeData(Get.find<Crud>());
   @override
@@ -30,7 +30,7 @@ class VerifyEmailForgotPasswordControllerImpl
 
     if (statusRequest == StatusRequest.success) {
       if (response['status'] == "success") {
-        Get.offNamed(AppRoute.resetPassword, arguments: email);
+        Get.offNamed(AppRoute.resetPassword, arguments: {'email': email});
       } else {
         Fluttertoast.showToast(
             toastLength: Toast.LENGTH_LONG, msg: "code is wrong");

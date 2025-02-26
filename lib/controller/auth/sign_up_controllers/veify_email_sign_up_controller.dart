@@ -13,7 +13,7 @@ abstract class VeifyEmailSignUpController extends GetxController {
 
 class VeifyEmailSignUpControllerImpl extends VeifyEmailSignUpController {
   late String email;
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
   VerifyCodeSignUpData verifyCodeSignUpData =
       VerifyCodeSignUpData(Get.find<Crud>());
 
