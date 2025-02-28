@@ -1,5 +1,4 @@
 import 'package:ecommerceapp/controller/auth/forgot_password_controllers/verify_email_forgot_pass_controller.dart';
-import 'package:ecommerceapp/core/class/status_request.dart';
 import 'package:ecommerceapp/core/widget/handling_data_request.dart';
 import 'package:ecommerceapp/view/widget/auth/check_email_otg.dart';
 import 'package:flutter/material.dart';

@@ -1,5 +1,4 @@
 import 'package:ecommerceapp/controller/auth/sign_up_controllers/veify_email_sign_up_controller.dart';
-import 'package:ecommerceapp/core/class/status_request.dart';
 import 'package:ecommerceapp/core/widget/handling_data_request.dart';
 import 'package:ecommerceapp/view/widget/auth/check_email_otg.dart';
 import 'package:flutter/material.dart';

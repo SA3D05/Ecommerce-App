@@ -17,4 +17,8 @@ class AppUrl {
       "$baseUrl/auth/forgot_password/verify_code.php";
   static String reserPassword =
       "$baseUrl/auth/forgot_password/reset_password.php";
+
+  // ====================== FORGOT PASSWORD ============================\\
+
+  static String home = "$baseUrl/home.php";
 }
