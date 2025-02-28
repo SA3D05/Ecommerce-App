@@ -1,6 +1,7 @@
 import 'package:ecommerceapp/controller/home_controller.dart';
 import 'package:ecommerceapp/core/constant/color.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
@@ -41,7 +42,7 @@ class Home extends StatelessWidget {
               },
               icon: const Icon(
                 Icons.person,
-                size: 30,
+                // size: 30,
               ),
             )),
             const SizedBox(
@@ -125,13 +126,13 @@ class Home extends StatelessWidget {
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: Container(
-                      height: 50,
-                      width: 100,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.grey,
-                      ),
-                    ),
+                        height: 50,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15),
+                          color: Colors.grey,
+                        ),
+                        child: const Icon(Icons.insert_emoticon_outlined)),
                   ),
                 ),
               ),
