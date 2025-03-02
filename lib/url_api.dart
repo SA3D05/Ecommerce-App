@@ -1,7 +1,10 @@
 class AppUrl {
   // ====================== BASE ============================   ||
-  static String baseUrl = "http://192.168.11.102/ecom"; //||
-  // ===================================================/=====   ||
+  static String baseUrl = "http://192.168.11.102/ecom"; //      ||
+  // ===================================================/=====  ||
+
+  static String categories = "$baseUrl/upload/categories";
+  static String products = "$baseUrl/upload/products";
 
   // ====================== TEST ============================\\
   static String testUrl = "$baseUrl/test.php";

@@ -1,5 +1,10 @@
 import 'package:ecommerceapp/controller/home_controller.dart';
 import 'package:ecommerceapp/core/constant/color.dart';
+import 'package:ecommerceapp/url_api.dart';
+import 'package:ecommerceapp/view/widget/home/custom_appbar.dart';
+import 'package:ecommerceapp/view/widget/home/custom_banner.dart';
+import 'package:ecommerceapp/view/widget/home/custom_search_row.dart';
+import 'package:ecommerceapp/view/widget/home/dots.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -9,132 +14,59 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(HomeController());
+    HomeController controller = Get.put(HomeController());
     return Scaffold(
         backgroundColor: const Color(0xfff8f8f8),
-        appBar: AppBar(
-          backgroundColor: const Color(0xfff8f8f8),
-          title: const Text("Home"),
-          centerTitle: true,
-          leading: const CircleAvatar(
-            child: Icon(Icons.apps_sharp),
-          ),
-          actions: [
-            const SizedBox(
-              width: 10,
-            ),
-            const CircleAvatar(
-                minRadius: 15,
-                backgroundColor: Colors.white,
-                // maxRadius: 50,
-                child: Icon(
-                  Icons.shopping_basket_rounded,
-                  color: Colors.grey,
-                  size: 20,
-                )),
-            const SizedBox(
-              width: 10,
-            ),
-            CircleAvatar(
-                child: IconButton(
-              onPressed: () {
-                print("WA3");
-              },
-              icon: const Icon(
-                Icons.person,
-                // size: 30,
-              ),
-            )),
-            const SizedBox(
-              width: 10,
-            ),
-          ],
-        ),
+        appBar: CustomAppbarHome(),
         body: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 10,
           ),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      height: 50,
-                      width: 200,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: Colors.grey.shade300,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      color: AppColor.light,
-                    ),
-                  )
-                ],
-              ),
+              const CustomSearchRowHome(),
               const SizedBox(
                 height: 20,
               ),
-              Container(
-                height: 100,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  color: Colors.grey.shade300,
-                ),
-              ),
+              const CustomBannerHome(),
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ...List.generate(
-                    3,
-                    (index) => Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 2),
-                      child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeInOut,
-                        height: 10,
-                        width: 20,
-                        decoration: BoxDecoration(
-                            color: AppColor.primary,
-                            borderRadius: BorderRadius.circular(5)),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+              const DotsHome(),
               const SizedBox(
                 height: 20,
               ),
               SizedBox(
-                height: 50,
+                height: 100,
                 child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (context, index) => Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Container(
-                        height: 50,
-                        width: 100,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.grey,
-                        ),
-                        child: const Icon(Icons.insert_emoticon_outlined)),
-                  ),
-                ),
+                    scrollDirection: Axis.horizontal,
+                    itemCount: controller.categories.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Container(
+                              width: 75,
+                              height: 75,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: Colors.grey,
+                              ),
+                              child: SvgPicture.network(
+                                "${AppUrl.categories}/${controller.categories[index]['categorie_image']}",
+                              ),
+                            ),
+                          ),
+                          Text(
+                            "${controller.categories[index]['categorie_name_en']}",
+                          )
+                        ],
+                      );
+                    }),
               ),
               const SizedBox(
                 height: 10,
@@ -167,13 +99,15 @@ class Home extends StatelessWidget {
                     mainAxisSpacing: 10,
                     childAspectRatio: 1,
                   ),
-                  itemCount: 9,
+                  itemCount: controller.products.length,
                   itemBuilder: (context, index) {
                     return Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                         color: Colors.grey,
                       ),
+                      child: Image.network(
+                          "${AppUrl.products}/${controller.products[index]['product_image']}"),
                     );
                   },
                 ),

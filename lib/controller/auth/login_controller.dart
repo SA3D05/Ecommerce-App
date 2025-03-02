@@ -4,7 +4,6 @@ import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:ecommerceapp/core/functions/handling_data.dart';
 import 'package:ecommerceapp/core/services/services.dart';
 import 'package:ecommerceapp/data/data_source/static/remot/auth/login.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -75,14 +74,8 @@ class LoginConrollerImpl extends LoginController {
     return super.login();
   }
 
-  Future getFCMToken() async {
-    String? token = await FirebaseMessaging.instance.getToken();
-    print("====================== FCM Token: $token ======================");
-  }
-
   @override
   void onInit() {
-    getFCMToken();
     email = TextEditingController();
     password = TextEditingController();
 
