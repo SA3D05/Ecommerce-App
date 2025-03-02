@@ -4,17 +4,16 @@ import 'package:ecommerceapp/core/functions/handling_data.dart';
 import 'package:ecommerceapp/core/services/services.dart';
 import 'package:ecommerceapp/data/data_source/static/remot/home_data.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   AppServices appServices = Get.find<AppServices>();
+  // PageController pageController;
   String? username;
   List categories = [];
   List products = [];
   int currentIndex = 1;
   List banners = ["assets/banner_1.png", "assets/banner_2.png"];
-  late PageController pageController;
 
   initialData() {
     username = appServices.sharedPreferences.getString("username");

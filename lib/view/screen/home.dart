@@ -1,5 +1,4 @@
 import 'package:ecommerceapp/controller/home_controller.dart';
-import 'package:ecommerceapp/core/constant/color.dart';
 import 'package:ecommerceapp/url_api.dart';
 import 'package:ecommerceapp/view/widget/home/custom_appbar.dart';
 import 'package:ecommerceapp/view/widget/home/custom_banner.dart';
