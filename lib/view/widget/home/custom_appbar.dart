@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomAppbarHome extends StatelessWidget implements PreferredSizeWidget {
+  final void Function()? onPressed;
+
+  const CustomAppbarHome({super.key, this.onPressed});
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
   @override
@@ -38,10 +41,12 @@ class CustomAppbarHome extends StatelessWidget implements PreferredSizeWidget {
             ],
           ),
         ),
-        const Padding(
-          padding: EdgeInsets.only(right: 12.0),
+        Padding(
+          padding: const EdgeInsets.only(right: 12.0),
           child: CircleAvatar(
-            child: Icon(Icons.person), // ضع صورتك هنا
+            child: IconButton(
+                onPressed: onPressed,
+                icon: const Icon(Icons.person)), // ضع صورتك هنا
           ),
         ),
       ],

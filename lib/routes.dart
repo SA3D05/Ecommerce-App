@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/controller/home_controller.dart';
 import 'package:ecommerceapp/core/middleware/app_middleware.dart';
 // import 'package:ecommerceapp/view/screen/add_server.dart';
 import 'package:ecommerceapp/view/screen/auth/forgot_password/forgot_password.dart';
@@ -9,6 +10,7 @@ import 'package:ecommerceapp/view/screen/auth/sign_up/sign_up.dart';
 import 'package:ecommerceapp/view/screen/auth/forgot_password/verify_email_forgot_pass.dart';
 import 'package:ecommerceapp/view/screen/change_language.dart';
 import 'package:ecommerceapp/view/screen/home.dart';
+import 'package:ecommerceapp/view/screen/home_screen.dart';
 import 'package:ecommerceapp/view/screen/on_boarding.dart';
 import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:get/get.dart';
@@ -41,7 +43,7 @@ List<GetPage<dynamic>>? routes = [
 
   // ====================== HOME ============================\\
 
-  GetPage(name: AppRoute.home, page: () => const Home()),
+  GetPage(name: AppRoute.home, page: () => const HomeScreen()),
 
   // ====================== END ============================\\
 ];
