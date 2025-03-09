@@ -2,7 +2,7 @@ import 'package:ecommerceapp/controller/home_controller.dart';
 import 'package:ecommerceapp/core/widget/handling_data_view.dart';
 import 'package:ecommerceapp/view/widget/home/custom_banner.dart';
 import 'package:ecommerceapp/view/widget/home/custom_categories_list.dart';
-import 'package:ecommerceapp/view/widget/home/custom_search_row.dart';
+import 'package:ecommerceapp/view/widget/custom_search_row.dart';
 import 'package:ecommerceapp/view/widget/home/custom_sections.dart';
 import 'package:ecommerceapp/view/widget/home/dots.dart';
 import 'package:ecommerceapp/view/widget/home/product_list.dart';
@@ -35,11 +35,9 @@ class Home extends StatelessWidget {
               const CustomSectionsHome(
                 title: 'Categories',
               ),
-              SizedBox(
+              const SizedBox(
                 height: 100,
-                child: CustomCategoriesListHome(
-                  categories: controller.categories,
-                ),
+                child: CustomCategoriesListHome(),
               ),
               const SizedBox(
                 height: 10,

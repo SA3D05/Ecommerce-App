@@ -1,5 +1,6 @@
 import 'package:ecommerceapp/core/class/crud.dart';
 import 'package:ecommerceapp/core/class/status_request.dart';
+import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:ecommerceapp/core/functions/handling_data.dart';
 import 'package:ecommerceapp/data/data_source/static/remot/home_data.dart';
 import 'package:get/get.dart';
@@ -15,7 +16,11 @@ class HomeController extends GetxController {
 
   StatusRequest statusRequest = StatusRequest.none;
   HomeData homeData = HomeData(Get.find<Crud>());
-
+  @override
+  void onInit() async {
+    await getData();
+    super.onInit();
+  }
   // initialData() {
   //   username = appServices.sharedPreferences.getString("username");
   // }
@@ -38,12 +43,10 @@ class HomeController extends GetxController {
   //   String? token = await FirebaseMessaging.instance.getToken();
   //   print("====================== FCM Token: $token ======================");
   // }
-
-  @override
-  void onInit() async {
-    await getData();
-    // initialData();
-
-    super.onInit();
+  goToProductsPage(int selectedCategorie) {
+    Get.toNamed(AppRoute.products, arguments: {
+      "categories": categories,
+      "selectedCat": selectedCategorie
+    });
   }
 }
