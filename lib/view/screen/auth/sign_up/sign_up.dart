@@ -13,14 +13,14 @@ class SignUp extends StatelessWidget {
   const SignUp({super.key});
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => SignUpConrollerImpl());
+    Get.lazyPut(() => SignUpConroller());
     return Scaffold(
       appBar: AppBar(
         title: const Text("Sign Up"),
         centerTitle: true,
         elevation: 0.0,
       ),
-      body: GetBuilder<SignUpConrollerImpl>(
+      body: GetBuilder<SignUpConroller>(
         builder: (controller) => HandlingDataRequest(
           statusRequest: controller.statusRequest,
           widget: Padding(
@@ -85,7 +85,7 @@ class SignUp extends StatelessWidget {
 
                     const SizedBox(height: 30),
                     // ========================================================  PASSWORD FIELD
-                    GetBuilder<SignUpConrollerImpl>(
+                    GetBuilder<SignUpConroller>(
                       builder: (controller) => CustomTextField(
                         controller: controller.password,
                         scureText: controller.isHide,
@@ -103,7 +103,7 @@ class SignUp extends StatelessWidget {
                     ),
                     const SizedBox(height: 30),
                     // ========================================================  SUBMIT BUTTON
-                    GetBuilder<SignUpConrollerImpl>(
+                    GetBuilder<SignUpConroller>(
                       builder: (controllerButton) => SizedBox(
                           width: double.infinity,
                           height: 50,

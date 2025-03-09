@@ -3,7 +3,7 @@ import 'package:ecommerceapp/data/data_source/static/static.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SlideOnBoarding extends GetView<OnBoardingControllerImpl> {
+class SlideOnBoarding extends GetView<OnBoardingController> {
   const SlideOnBoarding({super.key});
 
   @override

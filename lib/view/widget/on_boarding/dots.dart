@@ -9,7 +9,7 @@ class DotsOnBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<OnBoardingControllerImpl>(
+    return GetBuilder<OnBoardingController>(
         builder: (controller) => Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

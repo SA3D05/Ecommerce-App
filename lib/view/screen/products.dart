@@ -1,8 +1,11 @@
 import 'package:ecommerceapp/controller/procucts_controller.dart';
 import 'package:ecommerceapp/data/model/categories_modle.dart';
+import 'package:ecommerceapp/url_api.dart';
 import 'package:ecommerceapp/view/widget/custom_search_row.dart';
 import 'package:ecommerceapp/view/widget/home/custom_appbar.dart';
 import 'package:flutter/material.dart';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
 
 class Products extends StatelessWidget {
@@ -64,7 +67,16 @@ class Products extends StatelessWidget {
                           ),
                         );
                       }),
-                ))
+                )),
+            // GridView.builder(
+            //   shrinkWrap: true,
+            //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            //       crossAxisCount: 2),
+            //   itemBuilder: (context, index) => Card(
+            //     color: Colors.amber,
+            //     child: Image.network("${AppUrl.products}/samsung.png"),
+            //   ),
+            // )
           ]),
         ),
       ),

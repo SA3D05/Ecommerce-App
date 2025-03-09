@@ -9,7 +9,7 @@ class VerifyEmailForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(VerifyEmailForgotPasswordControllerImpl());
+    Get.put(VerifyEmailForgotPasswordController());
     return Scaffold(
         appBar: AppBar(
           title: const Text("Check Your Email"),
@@ -17,7 +17,7 @@ class VerifyEmailForgotPassword extends StatelessWidget {
           elevation: 0.0,
           backgroundColor: const Scaffold().backgroundColor,
         ),
-        body: GetBuilder<VerifyEmailForgotPasswordControllerImpl>(
+        body: GetBuilder<VerifyEmailForgotPasswordController>(
             builder: (controller) => HandlingDataRequest(
                   statusRequest: controller.statusRequest,
                   widget: Padding(

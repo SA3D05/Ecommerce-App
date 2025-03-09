@@ -8,15 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-abstract class LoginController extends GetxController {
-  login() {}
-  goToSignUp() {}
-  hideField() {}
-
-  goToForgotPassword() {}
-}
-
-class LoginConrollerImpl extends LoginController {
+class LoginConroller extends GetxController {
   AppServices appServices = Get.find<AppServices>();
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   bool isHide = true;
@@ -26,14 +18,11 @@ class LoginConrollerImpl extends LoginController {
   StatusRequest statusRequest = StatusRequest.none;
   LoginData loginData = LoginData(Get.find<Crud>());
 
-  @override
   hideField() {
     isHide = !isHide;
     update();
-    return super.hideField();
   }
 
-  @override
   login() async {
     if (formState.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
@@ -70,8 +59,6 @@ class LoginConrollerImpl extends LoginController {
           toastLength: Toast.LENGTH_LONG,
           msg: "make shure all the fields in a good form");
     }
-
-    return super.login();
   }
 
   @override
@@ -82,15 +69,11 @@ class LoginConrollerImpl extends LoginController {
     super.onInit();
   }
 
-  @override
   goToForgotPassword() {
     Get.toNamed(AppRoute.forgotPassword);
-    return super.goToForgotPassword();
   }
 
-  @override
   goToSignUp() {
     Get.toNamed(AppRoute.signUp);
-    return super.goToSignUp();
   }
 }

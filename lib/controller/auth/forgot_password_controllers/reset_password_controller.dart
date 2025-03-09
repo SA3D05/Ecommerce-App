@@ -7,18 +7,23 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-abstract class ResetPasswordController extends GetxController {
-  resetPassword() {}
-}
-
-class ResetPasswordControllerImpl extends ResetPasswordController {
+class ResetPasswordController extends GetxController {
   late TextEditingController password;
   late TextEditingController rePassword;
   StatusRequest statusRequest = StatusRequest.none;
+
   ResetPasswordData resetPasswordData = ResetPasswordData(Get.find<Crud>());
 
   GlobalKey<FormState> formState = GlobalKey<FormState>();
+
   @override
+  void onInit() {
+    password = TextEditingController();
+    rePassword = TextEditingController();
+
+    super.onInit();
+  }
+
   resetPassword() async {
     if (formState.currentState!.validate()) {
       if (password.text != rePassword.text) {
@@ -47,15 +52,6 @@ class ResetPasswordControllerImpl extends ResetPasswordController {
           toastLength: Toast.LENGTH_LONG,
           msg: "make shure all the fields in a good form");
     }
-    return super.resetPassword();
-  }
-
-  @override
-  void onInit() {
-    password = TextEditingController();
-    rePassword = TextEditingController();
-
-    super.onInit();
   }
 
   @override

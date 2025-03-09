@@ -6,12 +6,7 @@ import 'package:ecommerceapp/data/data_source/static/remot/auth/forgot_password/
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-abstract class VerifyEmailForgotPasswordController extends GetxController {
-  checkCode(String code) {}
-}
-
-class VerifyEmailForgotPasswordControllerImpl
-    extends VerifyEmailForgotPasswordController {
+class VerifyEmailForgotPasswordController extends GetxController {
   StatusRequest statusRequest = StatusRequest.none;
   late String email;
   VerifyCodeData verifyCodeData = VerifyCodeData(Get.find<Crud>());
@@ -21,7 +16,6 @@ class VerifyEmailForgotPasswordControllerImpl
     super.onInit();
   }
 
-  @override
   checkCode(String code) async {
     statusRequest = StatusRequest.loading;
     update();
@@ -38,7 +32,5 @@ class VerifyEmailForgotPasswordControllerImpl
       }
     }
     update();
-
-    return super.checkCode(code);
   }
 }

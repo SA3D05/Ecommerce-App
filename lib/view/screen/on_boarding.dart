@@ -10,7 +10,7 @@ class OnBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(OnBoardingControllerImpl());
+    Get.put(OnBoardingController());
     return const Scaffold(
       body: Column(
         children: [

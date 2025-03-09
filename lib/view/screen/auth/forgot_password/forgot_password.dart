@@ -11,7 +11,7 @@ class ForgotPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ForgotPasswordControllerImpl());
+    Get.put(ForgotPasswordController());
     return Scaffold(
         appBar: AppBar(
           title: const Text("Forgot Password"),
@@ -19,7 +19,7 @@ class ForgotPassword extends StatelessWidget {
           elevation: 0.0,
           backgroundColor: const Scaffold().backgroundColor,
         ),
-        body: GetBuilder<ForgotPasswordControllerImpl>(
+        body: GetBuilder<ForgotPasswordController>(
             builder: (controller) => HandlingDataRequest(
                   statusRequest: controller.statusRequest,
                   widget: Padding(

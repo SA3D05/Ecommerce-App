@@ -4,7 +4,7 @@ import 'package:ecommerceapp/core/constant/font.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomButtonOnBoarding extends GetView<OnBoardingControllerImpl> {
+class CustomButtonOnBoarding extends GetView<OnBoardingController> {
   const CustomButtonOnBoarding({super.key});
 
   @override
@@ -29,7 +29,7 @@ class CustomButtonOnBoarding extends GetView<OnBoardingControllerImpl> {
               borderRadius: BorderRadius.circular(15),
             ),
           ),
-          child: GetBuilder<OnBoardingControllerImpl>(
+          child: GetBuilder<OnBoardingController>(
             builder: (controller) => Text(
               controller.isLastPage ? "Get Started" : "Continue",
             ),

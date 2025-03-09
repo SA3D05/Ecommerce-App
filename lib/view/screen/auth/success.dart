@@ -9,7 +9,7 @@ class Success extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SuccessControllerImpl controller = Get.put(SuccessControllerImpl());
+    SuccessController controller = Get.put(SuccessController());
     return Scaffold(
       appBar: AppBar(
         title: const Text("Success"),

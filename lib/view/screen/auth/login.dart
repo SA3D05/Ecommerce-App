@@ -15,7 +15,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginConrollerImpl());
+    Get.put(LoginConroller());
     return ExitApp(
       child: Scaffold(
         appBar: AppBar(
@@ -24,7 +24,7 @@ class Login extends StatelessWidget {
           elevation: 0.0,
           backgroundColor: const Scaffold().backgroundColor,
         ),
-        body: GetBuilder<LoginConrollerImpl>(
+        body: GetBuilder<LoginConroller>(
             builder: (controller) => HandlingDataRequest(
                   statusRequest: controller.statusRequest,
                   widget: Padding(
@@ -73,7 +73,7 @@ class Login extends StatelessWidget {
                             const SizedBox(height: 30),
 
                             // ========================================================  PASSWORD FIELD
-                            GetBuilder<LoginConrollerImpl>(
+                            GetBuilder<LoginConroller>(
                               builder: (controller) => CustomTextField(
                                 controller: controller.password,
                                 scureText: controller.isHide,

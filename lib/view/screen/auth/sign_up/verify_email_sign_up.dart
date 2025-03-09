@@ -9,7 +9,7 @@ class VerifyEmailSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(VeifyEmailSignUpControllerImpl());
+    Get.put(VeifyEmailSignUpController());
     return Scaffold(
       appBar: AppBar(
         title: const Text("Check Your Email"),
@@ -17,7 +17,7 @@ class VerifyEmailSignUp extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: const Scaffold().backgroundColor,
       ),
-      body: GetBuilder<VeifyEmailSignUpControllerImpl>(
+      body: GetBuilder<VeifyEmailSignUpController>(
         builder: (controller) => HandlingDataRequest(
           statusRequest: controller.statusRequest,
           widget: Padding(

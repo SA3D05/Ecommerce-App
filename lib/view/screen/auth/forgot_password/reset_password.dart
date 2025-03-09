@@ -11,7 +11,7 @@ class ResetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(ResetPasswordControllerImpl());
+    Get.put(ResetPasswordController());
     return Scaffold(
         appBar: AppBar(
           title: const Text("Reset Password"),
@@ -19,7 +19,7 @@ class ResetPassword extends StatelessWidget {
           elevation: 0.0,
           backgroundColor: const Scaffold().backgroundColor,
         ),
-        body: GetBuilder<ResetPasswordControllerImpl>(
+        body: GetBuilder<ResetPasswordController>(
             builder: (controller) => HandlingDataRequest(
                   statusRequest: controller.statusRequest,
                   widget: Padding(

@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     AppServices appServices = Get.find<AppServices>();
-    // LocaleController controller = Get.put(LocaleController());
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       // home: const TestData(),
@@ -45,15 +44,13 @@ class MyApp extends StatelessWidget {
         textTheme: const TextTheme(
           bodyLarge: TextStyle(
             fontFamily: 'ElMessiri',
-            fontWeight:
-                AppFont.bold, // يمكنك تجربة FontWeight.w400 أو w700 وهكذا
+            fontWeight: AppFont.bold,
             fontSize: 32,
           ),
           bodySmall: TextStyle(
             height: 1.2,
             fontFamily: 'ElMessiri',
-            fontWeight:
-                AppFont.medium, // يمكنك تجربة FontWeight.w400 أو w700 وهكذا
+            fontWeight: AppFont.medium,
             fontSize: 16,
           ),
         ),

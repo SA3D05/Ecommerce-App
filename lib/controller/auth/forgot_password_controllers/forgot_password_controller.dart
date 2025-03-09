@@ -7,17 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-abstract class ForgotPasswordController extends GetxController {
-  checkEmail() {}
-}
-
-class ForgotPasswordControllerImpl extends ForgotPasswordController {
+class ForgotPasswordController extends GetxController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
   CheckEmailData checkEmailData = CheckEmailData(Get.find<Crud>());
   StatusRequest statusRequest = StatusRequest.none;
   late TextEditingController email;
 
-  @override
   checkEmail() async {
     if (formState.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
@@ -43,8 +38,6 @@ class ForgotPasswordControllerImpl extends ForgotPasswordController {
           toastLength: Toast.LENGTH_LONG,
           msg: "make shure all the fields in a good form");
     }
-
-    return super.checkEmail();
   }
 
   @override

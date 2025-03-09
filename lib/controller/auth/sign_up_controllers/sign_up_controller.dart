@@ -7,15 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 
-abstract class SignUpConroller extends GetxController {
-  signUp() {}
-
-  hideField() {}
-
-  goToLogin() {}
-}
-
-class SignUpConrollerImpl extends SignUpConroller {
+class SignUpConroller extends GetxController {
   GlobalKey<FormState> formState = GlobalKey<FormState>();
 
   bool isHide = true;
@@ -26,7 +18,6 @@ class SignUpConrollerImpl extends SignUpConroller {
   StatusRequest statusRequest = StatusRequest.none;
   SignUpData signUpData = SignUpData(Get.find<Crud>());
 
-  @override
   signUp() async {
     if (formState.currentState!.validate()) {
       statusRequest = StatusRequest.loading;
@@ -57,15 +48,11 @@ class SignUpConrollerImpl extends SignUpConroller {
           toastLength: Toast.LENGTH_LONG,
           msg: "make shure all the fields in a good form");
     }
-
-    return super.signUp();
   }
 
-  @override
   hideField() {
     isHide = !isHide;
     update();
-    return super.hideField();
   }
 
   @override
@@ -86,9 +73,7 @@ class SignUpConrollerImpl extends SignUpConroller {
     super.dispose();
   }
 
-  @override
   goToLogin() {
     Get.back();
-    return super.goToLogin();
   }
 }
