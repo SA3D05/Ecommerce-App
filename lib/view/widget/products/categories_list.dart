@@ -24,7 +24,10 @@ class CategoriesListProducts extends StatelessWidget {
                     child: InkWell(
                       highlightColor: Colors.transparent,
                       splashColor: Colors.transparent,
-                      onTap: () => controller.changeSelectedCat(index),
+                      onTap: () {
+                        controller.changeSelectedCat(
+                            index, categoriesModle.categorieId!);
+                      },
 
                       // onTap: () => print(index),
                       child: Column(

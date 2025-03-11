@@ -5,8 +5,9 @@ class ProductsData {
   Crud crud;
 
   ProductsData(this.crud);
-  getData() async {
-    var response = await crud.postData(AppUrl.products, {});
+  getData(int categorie) async {
+    var response = await crud
+        .postData(AppUrl.products, {"categorie": categorie.toString()});
     return response.fold(
       (l) => l,
       (r) => r,

@@ -18,7 +18,8 @@ class CustomCategoriesListHome extends GetView<HomeController> {
           return Padding(
             padding: const EdgeInsets.only(right: 15),
             child: InkWell(
-              onTap: () => controller.goToProductsPage(index),
+              onTap: () => controller.goToProductsPage(
+                  index, categoriesModle.categorieId!),
 
               // onTap: () => print(index),
               child: Column(

@@ -43,10 +43,11 @@ class HomeController extends GetxController {
   //   String? token = await FirebaseMessaging.instance.getToken();
   //   print("====================== FCM Token: $token ======================");
   // }
-  goToProductsPage(int selectedCategorie) {
+  goToProductsPage(int selectedCategorie, int categorieId) {
     Get.toNamed(AppRoute.products, arguments: {
       "categories": categories,
-      "selectedCat": selectedCategorie
+      "selectedCat": selectedCategorie,
+      "categorieId": categorieId,
     });
   }
 }
