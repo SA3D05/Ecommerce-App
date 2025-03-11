@@ -1,8 +1,8 @@
 import 'package:ecommerceapp/core/constant/color.dart';
 import 'package:flutter/material.dart';
 
-class CustomSearchRowHome extends StatelessWidget {
-  const CustomSearchRowHome({super.key});
+class CustomSearchRow extends StatelessWidget {
+  const CustomSearchRow({super.key});
 
   @override
   Widget build(BuildContext context) {

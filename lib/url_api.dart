@@ -1,10 +1,10 @@
 class AppUrl {
   // ====================== BASE ============================   ||
-  static String baseUrl = "http://192.168.1.2/ecom"; //      ||
+  static String baseUrl = "http://192.168.11.109/ecom"; //      ||
   // ===================================================/=====  ||
 
-  static String categories = "$baseUrl/upload/categories";
-  static String products = "$baseUrl/upload/products";
+  static String categoriesImg = "$baseUrl/upload/categories";
+  static String productsImg = "$baseUrl/upload/products";
 
   // ====================== TEST ============================\\
   static String testUrl = "$baseUrl/test.php";
@@ -24,4 +24,5 @@ class AppUrl {
   // ====================== FORGOT PASSWORD ============================\\
 
   static String home = "$baseUrl/home.php";
+  static String products = "$baseUrl/products.php";
 }

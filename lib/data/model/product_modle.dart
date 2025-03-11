@@ -1,4 +1,4 @@
-class ProductModle {
+class ProductsModle {
   int? productId;
   String? productNameEn;
   String? productNameAr;
@@ -12,7 +12,7 @@ class ProductModle {
   String? productDate;
   int? productCategorie;
 
-  ProductModle(
+  ProductsModle(
       {this.productId,
       this.productNameEn,
       this.productNameAr,
@@ -26,7 +26,7 @@ class ProductModle {
       this.productDate,
       this.productCategorie});
 
-  ProductModle.fromJson(Map<String, dynamic> json) {
+  ProductsModle.fromJson(Map<String, dynamic> json) {
     productId = json['product_id'];
     productNameEn = json['product_name_en'];
     productNameAr = json['product_name_ar'];

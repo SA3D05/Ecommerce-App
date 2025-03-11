@@ -3,7 +3,7 @@ import 'package:ecommerceapp/core/class/status_request.dart';
 import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:ecommerceapp/core/functions/handling_data.dart';
 import 'package:ecommerceapp/core/services/services.dart';
-import 'package:ecommerceapp/data/data_source/static/remot/auth/login.dart';
+import 'package:ecommerceapp/data/data_source/remot/auth/login.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';

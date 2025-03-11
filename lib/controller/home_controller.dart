@@ -2,7 +2,7 @@ import 'package:ecommerceapp/core/class/crud.dart';
 import 'package:ecommerceapp/core/class/status_request.dart';
 import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:ecommerceapp/core/functions/handling_data.dart';
-import 'package:ecommerceapp/data/data_source/static/remot/home_data.dart';
+import 'package:ecommerceapp/data/data_source/remot/home_data.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {

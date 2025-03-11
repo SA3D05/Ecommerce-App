@@ -23,9 +23,9 @@ class ProductListHome extends StatelessWidget {
         ),
         itemCount: products.length,
         itemBuilder: (context, index) {
-          ProductModle productModle = ProductModle.fromJson(products[index]);
+          ProductsModle productModle = ProductsModle.fromJson(products[index]);
           String productImageLink =
-              "${AppUrl.products}/${productModle.productImage}";
+              "${AppUrl.productsImg}/${productModle.productImage}";
           return Container(
             width: 100,
             decoration: BoxDecoration(

@@ -43,7 +43,6 @@ class AddServerController extends GetxController {
         statusRequest = StatusRequest.failure;
       }
     } else {
-      print("========================($response)");
       Fluttertoast.showToast(
           toastLength: Toast.LENGTH_LONG, msg: "error $statusRequest");
     }

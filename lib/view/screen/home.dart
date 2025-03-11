@@ -24,7 +24,7 @@ class Home extends StatelessWidget {
           ),
           child: ListView(
             children: [
-              const CustomSearchRowHome(),
+              const CustomSearchRow(),
               const SizedBox(
                 height: 20,
               ),

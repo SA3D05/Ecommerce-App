@@ -35,7 +35,7 @@ class CustomCategoriesListHome extends GetView<HomeController> {
                       color: Colors.grey,
                     ),
                     child: SvgPicture.network(
-                        "${AppUrl.categories}/${categoriesModle.categorieImage}"),
+                        "${AppUrl.categoriesImg}/${categoriesModle.categorieImage}"),
                   ),
                   Text(
                     "${categoriesModle.categorieNameEn}",
