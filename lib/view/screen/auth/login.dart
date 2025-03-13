@@ -19,7 +19,7 @@ class Login extends StatelessWidget {
     return ExitApp(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("Login"),
+          title: Text("login".tr),
           centerTitle: true,
           elevation: 0.0,
           backgroundColor: const Scaffold().backgroundColor,
@@ -52,8 +52,8 @@ class Login extends StatelessWidget {
                                   fontSize: 28, fontWeight: FontWeight.bold),
                             ),
                             const SizedBox(height: 8),
-                            const Text(
-                              "Sign in with your email and password or continue with social media",
+                            Text(
+                              "sign_in_with_email".tr,
                               textAlign: TextAlign.center,
                             ),
                             const SizedBox(
@@ -98,16 +98,17 @@ class Login extends StatelessWidget {
                                   children: [
                                     Checkbox(
                                         value: false, onChanged: (value) {}),
-                                    const Text("Remember me"),
+                                    Text("remember_me".tr),
                                   ],
                                 ),
                                 TextButton(
                                   onPressed: () {
                                     controller.goToForgotPassword();
                                   },
-                                  child: const Text(
-                                    "Forgot Password?",
-                                    style: TextStyle(color: AppColor.primary),
+                                  child: Text(
+                                    "forgot_password".tr,
+                                    style: const TextStyle(
+                                        color: AppColor.primary),
                                   ),
                                 ),
                               ],
@@ -122,8 +123,8 @@ class Login extends StatelessWidget {
 
                             const SizedBox(height: 10),
                             BottomMessageAuth(
-                              message: 'Don\'t have an account?',
-                              goToPageText: "Sign Up",
+                              message: "dont_have_an_account".tr,
+                              goToPageText: "sign_up".tr,
                               onPressed: () {
                                 controller.goToSignUp();
                               },

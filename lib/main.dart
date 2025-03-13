@@ -1,20 +1,24 @@
 import 'package:ecommerceapp/binding.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:ecommerceapp/core/constant/color.dart';
 import 'package:ecommerceapp/core/constant/font.dart';
 import 'package:ecommerceapp/core/localization/translation.dart';
 import 'package:ecommerceapp/core/services/services.dart';
 import 'package:ecommerceapp/routes.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
 
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
-
-  runApp(const MyApp());
+  runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const MyApp(), // Wrap your app
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -24,6 +28,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     AppServices appServices = Get.find<AppServices>();
     return GetMaterialApp(
+      useInheritedMediaQuery: true,
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       // home: const TestData(),
       // setup app language
