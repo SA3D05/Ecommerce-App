@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/controller/home_controller.dart';
+import 'package:ecommerceapp/core/functions/translate_db.dart';
 import 'package:ecommerceapp/data/model/categories_modle.dart';
 import 'package:ecommerceapp/url_api.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,8 @@ class CustomCategoriesListHome extends GetView<HomeController> {
                         "${AppUrl.categoriesImg}/${categoriesModle.categorieImage}"),
                   ),
                   Text(
-                    "${categoriesModle.categorieNameEn}",
+                    translateDb(categoriesModle.categorieNameAr!,
+                        categoriesModle.categorieNameEn!),
                   )
                 ],
               ),

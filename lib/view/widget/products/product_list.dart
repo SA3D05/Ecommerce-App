@@ -1,4 +1,6 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerceapp/controller/procucts_controller.dart';
+import 'package:ecommerceapp/core/functions/translate_db.dart';
 import 'package:ecommerceapp/data/model/product_modle.dart';
 import 'package:ecommerceapp/url_api.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +26,8 @@ class ProductList extends StatelessWidget {
                 ProductsModle.fromJson(controller.products[index]);
 
             return InkWell(
+              onTap: () =>
+                  controller.goToProductDetails(productsModle.productNameAr!),
               child: Card(
                 color: Colors.amber,
                 child: Padding(
@@ -35,9 +39,14 @@ class ProductList extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
-                            child: Image.network(
-                                "${AppUrl.productsImg}/${productsModle.productImage}")),
-                        Text("${productsModle.productNameEn}"),
+                            child: Hero(
+                          tag: "1",
+                          child: CachedNetworkImage(
+                              imageUrl:
+                                  "${AppUrl.productsImg}/${productsModle.productImage}"),
+                        )),
+                        Text(translateDb(productsModle.productNameAr!,
+                            productsModle.productNameEn!)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomAppbarHome extends StatelessWidget implements PreferredSizeWidget {
   final void Function()? onPressed;
@@ -12,9 +13,9 @@ class CustomAppbarHome extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: Colors.amber,
       elevation: 0,
       centerTitle: true,
-      title: const Text(
-        'Home',
-        style: TextStyle(
+      title: Text(
+        "home".tr,
+        style: const TextStyle(
           color: Colors.black,
           fontSize: 20,
           fontWeight: FontWeight.bold,

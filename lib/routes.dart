@@ -10,6 +10,7 @@ import 'package:ecommerceapp/view/screen/change_language.dart';
 import 'package:ecommerceapp/view/screen/home_screen.dart';
 import 'package:ecommerceapp/view/screen/on_boarding.dart';
 import 'package:ecommerceapp/core/constant/routes.dart';
+import 'package:ecommerceapp/view/screen/product_details.dart';
 import 'package:ecommerceapp/view/screen/products.dart';
 import 'package:get/get.dart';
 
@@ -43,6 +44,7 @@ List<GetPage<dynamic>>? routes = [
 
   GetPage(name: AppRoute.home, page: () => const HomeScreen()),
   GetPage(name: AppRoute.products, page: () => const Products()),
+  GetPage(name: AppRoute.productDetails, page: () => ProductDetails()),
 
   // ====================== END ============================\\
 ];

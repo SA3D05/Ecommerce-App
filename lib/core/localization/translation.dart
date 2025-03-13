@@ -15,6 +15,10 @@ class AppTranslation extends Translations {
           "sign_up": "Sign Up",
           "sign_in_with_email":
               "Sign in with your email and password or continue with social media",
+          "categories": "Categories",
+          "popular": "Popular",
+          "view_all": "View All",
+          "home": "Home",
         },
         "fr": {
           "english": "Anglais",
@@ -28,6 +32,10 @@ class AppTranslation extends Translations {
           "sign_up": "S'inscrire",
           "sign_in_with_email":
               "Connectez-vous avec votre email et mot de passe ou continuez avec les réseaux sociaux",
+          "categories": "Categories",
+          "popular": "Popular",
+          "view_all": "View All",
+          "home": "Home",
         },
         "ar": {
           "english": "الانجليزية",
@@ -41,6 +49,10 @@ class AppTranslation extends Translations {
           "sign_up": "إنشاء حساب",
           "sign_in_with_email":
               "سجّل دخولك باستخدام بريدك الإلكتروني وكلمة المرور أو تابع عبر وسائل التواصل الاجتماعي",
+          "categories": "فئات",
+          "popular": "شائع",
+          "view_all": "عرض الكل",
+          "home": "الصفحة الرئيسية",
         },
       };
 }

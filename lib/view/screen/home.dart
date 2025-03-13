@@ -32,8 +32,8 @@ class Home extends StatelessWidget {
               const SizedBox(height: 10),
               const DotsHome(),
               const SizedBox(height: 20),
-              const CustomSectionsHome(
-                title: 'Categories',
+              CustomSectionsHome(
+                title: "categories".tr,
               ),
               const SizedBox(
                 height: 100,
@@ -42,8 +42,8 @@ class Home extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              const CustomSectionsHome(
-                title: 'Popular',
+              CustomSectionsHome(
+                title: "popular".tr,
               ),
               ProductListHome(
                 products: controller.products,

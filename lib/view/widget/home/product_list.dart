@@ -1,7 +1,9 @@
 import 'package:ecommerceapp/core/constant/font.dart';
+import 'package:ecommerceapp/core/functions/translate_db.dart';
 import 'package:ecommerceapp/data/model/product_modle.dart';
 import 'package:ecommerceapp/url_api.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class ProductListHome extends StatelessWidget {
   final List products;
@@ -57,13 +59,12 @@ class ProductListHome extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 30),
                   child: SizedBox(
-                    height: 130,
-                    width: double.infinity,
-                    child: Image.network(
-                      productImageLink,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
+                      height: 130,
+                      width: double.infinity,
+                      child: CachedNetworkImage(
+                        imageUrl: productImageLink,
+                        fit: BoxFit.contain,
+                      )),
                 ),
                 Positioned(
                   left: 16,
@@ -73,7 +74,8 @@ class ProductListHome extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        productModle.productNameEn!,
+                        translateDb(productModle.productNameAr!,
+                            productModle.productNameEn!),
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,

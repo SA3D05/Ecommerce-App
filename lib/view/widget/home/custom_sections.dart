@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomSectionsHome extends StatelessWidget {
   final String title;
@@ -17,9 +18,9 @@ class CustomSectionsHome extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        const Text(
-          "View All",
-          style: TextStyle(
+        Text(
+          "view_all".tr,
+          style: const TextStyle(
             color: Colors.grey,
             fontSize: 15,
             // fontWeight: FontWeight.bold,

@@ -1,4 +1,5 @@
 import 'package:ecommerceapp/controller/procucts_controller.dart';
+import 'package:ecommerceapp/core/functions/translate_db.dart';
 import 'package:ecommerceapp/data/model/categories_modle.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -36,7 +37,8 @@ class CategoriesListProducts extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "${categoriesModle.categorieNameEn}",
+                            translateDb(categoriesModle.categorieNameAr!,
+                                categoriesModle.categorieNameEn!),
                             style: const TextStyle(
                               fontSize: 20,
                             ),
