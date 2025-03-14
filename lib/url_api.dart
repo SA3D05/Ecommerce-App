@@ -1,6 +1,6 @@
 class AppUrl {
   // ====================== BASE ============================   ||
-  static String baseUrl = "http://192.168.11.101/ecom"; //      ||
+  static String baseUrl = "http://localhost/ecom"; //      ||
   // ===================================================/=====  ||
 
   static String categoriesImg = "$baseUrl/upload/categories";

@@ -1,155 +1,77 @@
-import 'package:ecommerceapp/url_api.dart';
+import 'package:ecommerceapp/controller/product_details_controller.dart';
+import 'package:ecommerceapp/core/functions/get_screen_info.dart';
+import 'package:ecommerceapp/core/functions/translate_db.dart';
+import 'package:ecommerceapp/data/model/product_modle.dart';
+import 'package:ecommerceapp/view/widget/products/product_details.dart/color_picker.dart';
+import 'package:ecommerceapp/view/widget/products/product_details.dart/costum_line.dart';
+import 'package:ecommerceapp/view/widget/products/product_details.dart/description.dart';
+import 'package:ecommerceapp/view/widget/products/product_details.dart/product_images_scroll.dart';
+import 'package:ecommerceapp/view/widget/products/product_details.dart/quantity_selector.dart';
+import 'package:ecommerceapp/view/widget/products/product_details.dart/title_details.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ProductDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    ProductDetailsController controller = Get.put(ProductDetailsController());
+    ProductModle product = controller.productModle;
     return Scaffold(
       backgroundColor: Colors.grey.shade200,
       appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Hero(
-              tag: "1",
-              child: Image.network(
-                "${AppUrl.productsImg}/samsung.png",
-                height: screenHeight / 2,
-              ),
-            ), // تأكد من وجود الصورة في مجلد assets
-            Container(
-              height: screenHeight / 2,
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(30),
-                      topRight: Radius.circular(30))),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-
-                // padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Puma Max',
-                            style: TextStyle(
-                                fontSize: 24, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            '\$100.00',
-                            style: TextStyle(fontSize: 20, color: Colors.green),
-                          ),
-                        ]),
-                    const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'By Puma',
-                            style: TextStyle(fontSize: 16, color: Colors.grey),
-                          ),
-                          SizedBox(height: 8),
-                          Row(
-                            children: [
-                              Icon(Icons.star, color: Colors.amber),
-                              Text('4.3', style: TextStyle(fontSize: 16)),
-                            ],
-                          ),
-                        ]),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Size',
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 8),
-                        SizedBox(
-                          height: 60,
-                          width: 200,
-                          child: ListView(
-                            // shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              const SizeButton(size: 'US 6'),
-                              const SizeButton(size: 'US 7'),
-                              const SizeButton(size: 'US 8'),
-                              const SizeButton(size: 'US 9'),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Color',
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        const SizedBox(height: 8),
-                        SizedBox(
-                          height: 60,
-                          width: 200,
-                          child: ListView(
-                            // shrinkWrap: true,
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              const SizeButton(size: 'Red'),
-                              const SizeButton(size: 'Red'),
-                              const SizeButton(size: 'Red'),
-                              const SizeButton(size: 'Red'),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                    const Text(
-                      'Description',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 8),
-                    const Text(
-                      'Sometimes fashion just looks fast. These sci-fi inspired trainers are bold and colourful because their no retro design notes optimistically point to better ahead...',
-                      style: TextStyle(fontSize: 10),
-                    ),
-                  ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                height: getScreenHeight(context) / 2.5,
+                child: ProductImagesScroll(
+                  productId: product.productId!,
+                  productImage: product.productImage!,
                 ),
               ),
-            ),
-          ],
+              Container(
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30))),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+
+                  // padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ProductTitleDetails(
+                        title: translateDb(
+                            product.productNameAr!, product.productNameEn!),
+                        price: product.productPrice!,
+                      ),
+                      const CostumLine(),
+                      const SizedBox(
+                        
+                        height: 10,
+                      ),
+                      const ColorPickerDetails(),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      const QuantitySelectorDetails(count: 1),
+                      const CostumLine(),
+                      DescriptionDetails(
+                        description: translateDb(product.productDescriptionAr!,
+                            product.productDescriptionEn!),
+                      ),
+                      const SizedBox(height: 8),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
-}
-
-class SizeButton extends StatelessWidget {
-  final String size;
-
-  const SizeButton({required this.size});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        decoration: BoxDecoration(
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Text(size),
       ),
     );
   }

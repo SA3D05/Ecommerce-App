@@ -25,9 +25,9 @@ class ProductListHome extends StatelessWidget {
         ),
         itemCount: products.length,
         itemBuilder: (context, index) {
-          ProductsModle productModle = ProductsModle.fromJson(products[index]);
+          ProductModle product = ProductModle.fromJson(products[index]);
           String productImageLink =
-              "${AppUrl.productsImg}/${productModle.productImage}";
+              "${AppUrl.productsImg}/${product.productImage}";
           return Container(
             width: 100,
             decoration: BoxDecoration(
@@ -36,7 +36,7 @@ class ProductListHome extends StatelessWidget {
             ),
             child: Stack(
               children: [
-                if (productModle.productActive! == 1)
+                if (product.productActive! == 1)
                   Positioned(
                     left: 10,
                     top: 10,
@@ -74,8 +74,8 @@ class ProductListHome extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        translateDb(productModle.productNameAr!,
-                            productModle.productNameEn!),
+                        translateDb(
+                            product.productNameAr!, product.productNameEn!),
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
@@ -84,7 +84,7 @@ class ProductListHome extends StatelessWidget {
                       ),
                       // const SizedBox(height: 4),
                       Text(
-                        '\$${productModle.productPrice!.toStringAsFixed(2)}',
+                        '\$${product.productPrice!.toStringAsFixed(2)}',
                         style: const TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,

@@ -3,6 +3,7 @@ import 'package:ecommerceapp/core/class/status_request.dart';
 import 'package:ecommerceapp/core/constant/routes.dart';
 import 'package:ecommerceapp/core/functions/handling_data.dart';
 import 'package:ecommerceapp/data/data_source/remot/products_data.dart';
+import 'package:ecommerceapp/data/model/product_modle.dart';
 import 'package:get/get.dart';
 
 class ProductsController extends GetxController {
@@ -34,9 +35,9 @@ class ProductsController extends GetxController {
     getData(categorieId);
   }
 
-  goToProductDetails(String product) {
+  goToProductDetails(ProductModle productsModle) {
     Get.toNamed(AppRoute.productDetails, arguments: {
-      "product": product,
+      "product": productsModle,
     });
   }
 

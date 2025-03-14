@@ -22,12 +22,10 @@ class ProductList extends StatelessWidget {
           ),
           itemCount: controller.products.length,
           itemBuilder: (context, index) {
-            ProductsModle productsModle =
-                ProductsModle.fromJson(controller.products[index]);
-
+            ProductModle product =
+                ProductModle.fromJson(controller.products[index]);
             return InkWell(
-              onTap: () =>
-                  controller.goToProductDetails(productsModle.productNameAr!),
+              onTap: () => controller.goToProductDetails(product),
               child: Card(
                 color: Colors.amber,
                 child: Padding(
@@ -40,18 +38,18 @@ class ProductList extends StatelessWidget {
                       children: [
                         Expanded(
                             child: Hero(
-                          tag: "1",
+                          tag: product.productId!,
                           child: CachedNetworkImage(
                               imageUrl:
-                                  "${AppUrl.productsImg}/${productsModle.productImage}"),
+                                  "${AppUrl.productsImg}/${product.productImage}"),
                         )),
-                        Text(translateDb(productsModle.productNameAr!,
-                            productsModle.productNameEn!)),
+                        Text(translateDb(
+                            product.productNameAr!, product.productNameEn!)),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "${productsModle.productPrice}\$",
+                              "${product.productPrice}\$",
                               style: const TextStyle(fontSize: 25),
                             ),
                             const Icon(Icons.favorite_outline_rounded)
