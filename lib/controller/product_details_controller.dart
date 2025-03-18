@@ -3,18 +3,20 @@ import 'package:get/get.dart';
 
 class ProductDetailsController extends GetxController {
   late ProductModle productModle;
+  int count = 1;
 
-  addCount(int oldCount) {
-if    (oldCount < productModle.productCount ){
-    oldCount++;
-    update();}
+  addCount() {
+    if (count < productModle.productCount!) {
+      count++;
+      update();
+    }
   }
-  removeCount(int oldCount) {
-    if (oldCount > 1 ){
 
-    oldCount--;
-    
-    update();
+  removeCount() {
+    if (count > 1) {
+      count--;
+
+      update();
     }
   }
 

@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/view/screen/favorites.dart';
 import 'package:ecommerceapp/view/screen/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -7,9 +8,7 @@ class HomeScreenController extends GetxController {
 
   List<Widget> pages = [
     const Home(),
-    const Center(
-      child: Text("favorite"),
-    ),
+    const Favorites(),
     const Center(
       child: Text("Settings"),
     ),

@@ -12,7 +12,7 @@ class HomeScreen extends StatelessWidget {
     Get.put(HomeScreenController());
     return GetBuilder<HomeScreenController>(
       builder: (controller) => Scaffold(
-        appBar: const CustomAppbarHome(),
+        // appBar: const CustomAppbarHome(),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.amber,
           hoverColor: Colors.white,
@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: const CustomBottomAppBar(),
-        body: controller.pages[controller.currentPage],
+        body: SafeArea(child: controller.pages[controller.currentPage]),
       ),
     );
   }

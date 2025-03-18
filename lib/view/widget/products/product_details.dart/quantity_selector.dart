@@ -1,44 +1,43 @@
+import 'package:ecommerceapp/controller/product_details_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class QuantitySelectorDetails extends StatelessWidget {
-  final int count;
-  final void Function()? onAdd;
-  final void Function()? onRemove;
-
-  const QuantitySelectorDetails(
-      {super.key, required this.count, this.onAdd, this.onRemove});
+  const QuantitySelectorDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Text("Quantity"),
-        const SizedBox(
-          width: 15,
-        ),
-        Container(
-          height: 40,
-          width: 130,
-          decoration: BoxDecoration(
-            color: Colors.grey.shade300,
-            borderRadius: BorderRadius.circular(30),
+    return GetBuilder<ProductDetailsController>(
+      builder: (controller) => Row(
+        children: [
+          const Text("Quantity"),
+          const SizedBox(
+            width: 15,
           ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                onPressed: onAdd,
-                icon: const Icon(Icons.add),
-              ),
-              Text("$count"),
-              IconButton(
-                onPressed: onRemove,
-                icon: const Icon(Icons.remove),
-              ),
-            ],
-          ),
-        )
-      ],
+          Container(
+            height: 40,
+            width: 130,
+            decoration: BoxDecoration(
+              color: Colors.grey.shade300,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                IconButton(
+                  onPressed: () => controller.addCount(),
+                  icon: const Icon(Icons.add),
+                ),
+                Text("${controller.count}"),
+                IconButton(
+                  onPressed: () => controller.removeCount(),
+                  icon: const Icon(Icons.remove),
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

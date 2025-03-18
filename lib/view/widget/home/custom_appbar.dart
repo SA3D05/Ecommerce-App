@@ -25,7 +25,10 @@ class CustomAppbarHome extends StatelessWidget implements PreferredSizeWidget {
         padding: const EdgeInsets.all(10.0),
         child: CircleAvatar(
           backgroundColor: Colors.red.shade100,
-          child: const Icon(Icons.grid_view, color: Colors.red),
+          child: IconButton(
+              onPressed: () => Get.back(),
+              icon: const Icon(Icons.grid_view),
+              color: Colors.red),
         ),
       ),
       actions: [

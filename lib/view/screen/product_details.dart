@@ -51,14 +51,13 @@ class ProductDetails extends StatelessWidget {
                       ),
                       const CostumLine(),
                       const SizedBox(
-                        
                         height: 10,
                       ),
                       const ColorPickerDetails(),
                       const SizedBox(
                         height: 10,
                       ),
-                      const QuantitySelectorDetails(count: 1),
+                      const QuantitySelectorDetails(),
                       const CostumLine(),
                       DescriptionDetails(
                         description: translateDb(product.productDescriptionAr!,
