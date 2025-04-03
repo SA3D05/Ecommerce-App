@@ -25,4 +25,5 @@ class AppUrl {
 
   static String home = "$baseUrl/home.php";
   static String products = "$baseUrl/products.php";
+  static String addFavorite = "$baseUrl/add_favorite.php";
 }

@@ -12,6 +12,7 @@ class HomeScreen extends StatelessWidget {
     Get.put(HomeScreenController());
     return GetBuilder<HomeScreenController>(
       builder: (controller) => Scaffold(
+        backgroundColor: Colors.white,
         // appBar: const CustomAppbarHome(),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.amber,

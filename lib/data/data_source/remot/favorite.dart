@@ -1,14 +1,14 @@
 import 'package:ecommerceapp/core/class/crud.dart';
 import 'package:ecommerceapp/url_api.dart';
 
-class ProductsData {
+class FavoriteData {
   Crud crud;
 
-  ProductsData(this.crud);
-  getData(int categorie, int userId) async {
-    var response = await crud.postData(AppUrl.products, {
-      "categorie": categorie.toString(),
+  FavoriteData(this.crud);
+  getData(int userId, int productId) async {
+    var response = await crud.postData(AppUrl.addFavorite, {
       "user_id": userId.toString(),
+      "product_id": productId.toString(),
     });
     return response.fold(
       (l) => l,

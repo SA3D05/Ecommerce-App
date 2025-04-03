@@ -3,7 +3,6 @@ import 'package:ecommerceapp/core/widget/handling_data_view.dart';
 import 'package:ecommerceapp/view/widget/products/categories_list.dart';
 import 'package:ecommerceapp/view/widget/products/product_list.dart';
 import 'package:ecommerceapp/view/widget/custom_search_row.dart';
-import 'package:ecommerceapp/view/widget/home/custom_appbar.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -15,7 +14,7 @@ class Products extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(ProductsController());
     return Scaffold(
-      appBar: const CustomAppbarHome(),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10.0),
         child: ListView(

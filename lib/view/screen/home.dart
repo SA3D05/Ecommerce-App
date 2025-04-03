@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerceapp/controller/home_controller.dart';
+import 'package:ecommerceapp/core/constant/font.dart';
 import 'package:ecommerceapp/core/widget/handling_data_view.dart';
+import 'package:ecommerceapp/url_api.dart';
 import 'package:ecommerceapp/view/widget/home/custom_banner.dart';
 import 'package:ecommerceapp/view/widget/home/custom_categories_list.dart';
 import 'package:ecommerceapp/view/widget/custom_search_row.dart';
@@ -47,7 +50,7 @@ class Home extends StatelessWidget {
               ),
               ProductListHome(
                 products: controller.products,
-              )
+              ),
             ],
           ),
         ),
